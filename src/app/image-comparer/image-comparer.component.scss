@@ -1,0 +1,15 @@
+@import "../colours.scss";
+
+.image-comparer-container {
+  background-color: $t-l-grey;
+  min-height: 80vh;
+  width: 100vw;
+  // will align content in the center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-wrapper {
+  margin: auto;
+}

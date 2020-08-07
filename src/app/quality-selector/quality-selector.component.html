@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-md-6">
-        <input type="range" class="form-range" min="0" max="100" id="quality">
+        <input [formControl]="quality" type="range" class="form-range" min="0" max="100" id="quality">
       </div>
       <div class="col-md-1">
         <div class="numeric-display">
-          80 %
+          {{ quality.value }} %
         </div>
       </div>
     </div>
