@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { QualitySelectorComponent } from './quality-selector/quality-selector.component';
+import { ImageComparerComponent } from './image-comparer/image-comparer.component';
+import { DownloadBarComponent } from './download-bar/download-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QualitySelectorComponent,
+    ImageComparerComponent,
+    DownloadBarComponent,
   ],
   imports: [
     BrowserModule,
