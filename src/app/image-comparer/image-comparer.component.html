@@ -1,11 +1,26 @@
+<div class="quality-selector">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <input [formControl]="quality" type="range" class="form-range" min="0" max="100" id="quality">
+      </div>
+      <div class="col-md-1">
+        <div class="numeric-display">
+          {{ quality.value }} %
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="image-comparer-container">
   <div class="container">
     <div class="row">
-      <div class="col-md"><img width="100%" src="/assets/profile-1.jpg"></div>
-      <div class="col-md">
-        <div class="img-wrapper">
-          <img width="100%" src="/assets/profile-1.jpg">
-        </div>
+      <div class="col-md-6">
+        <canvas id="before"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="after"></canvas>
       </div>
     </div>
   </div>
