@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormControlName } from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
 
 @Component({
@@ -10,21 +10,32 @@ import { ThrowStmt } from '@angular/compiler';
 export class ImageComparerComponent implements OnInit {
   quality = new FormControl(85);
   imgPathField = new FormControl();
+  outputNameField = new FormControl("output");
   orig : File;
   cmprsd : File;
 
   constructor(private ref: ChangeDetectorRef) { }
 
+  static getInnerWidth(e : HTMLElement) : number {
+    var styles = window.getComputedStyle(e);
+    var padding = parseFloat(styles.paddingLeft) +
+      parseFloat(styles.paddingRight);
+    return e.clientWidth - padding;
+  }
+
   drawImage(canvas : HTMLCanvasElement, url : string, callback = () => {}) : void {
-    var parent = canvas.parentElement;
     let img = new Image();
     img.src = url;
 
     img.onload = function() {
-      var dWidth = parent.offsetWidth;
-      var dHeight = parent.offsetWidth / img.width * img.height;
-
-      // set canvas to be as big as the image
+      // set canvas to width for the parents element (not including padding/margin)
+      var dWidth = ImageComparerComponent.getInnerWidth(canvas.parentElement);
+      var dHeight = dWidth / img.width * img.height;
+      // image should not exceed a portion of the screen
+      if (dHeight > window.innerHeight * 0.8) {
+        dHeight = window.innerHeight * 0.8;
+        dWidth = dHeight / img.height * img.width;
+      }
       canvas.width = dWidth;
       canvas.height = dHeight;
 
@@ -45,6 +56,10 @@ export class ImageComparerComponent implements OnInit {
 
   getCPFileSize() : number {
     return this.cmprsd ? this.cmprsd.size : -1;
+  }
+
+  selectedImg() : boolean {
+    return this.orig !== undefined;
   }
 
   toSizeString(bytes : number, unit : 'B' | 'KB' | 'MB' | 'GB') : string {
@@ -69,7 +84,7 @@ export class ImageComparerComponent implements OnInit {
 
   handleDownload() {
     var a = document.createElement('a');
-    a.download = 'true';
+    a.download = this.outputNameField.value + '.jpeg';
     var bUrl = URL.createObjectURL(this.cmprsd);
     a.href = bUrl;
     a.click();
@@ -100,6 +115,7 @@ export class ImageComparerComponent implements OnInit {
       return;
     }
     this.orig = file;
+    this.outputNameField.setValue(`${file.name.split('.')[0]}-compressed`);
     var before = document.getElementById('before') as HTMLCanvasElement;
     this.drawBlob(before, file, () => { this.handleQualityChange() });
   }

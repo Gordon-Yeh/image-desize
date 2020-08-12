@@ -1,3 +1,29 @@
+<div class="image-comparer-container">
+  <div [hidden]="orig != undefined">
+    <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
+  </div>
+  <div [hidden]="orig == undefined" class="container">
+    <div class="row gx-3 justify-content-md-center">
+      <div class="col-md-6 border-right border-secondary">
+        <div *ngIf="getOGFileSize() > -1" class="text-right">
+          {{ toSizeString(getOGFileSize(), 'KB') }}
+        </div>
+        <div class="align-content-center">
+          <canvas id="before"></canvas>
+        </div>
+      </div>
+      <div class="col-md-6 border-left border-secondary">
+        <div *ngIf="getCPFileSize() > -1" >
+          {{ toSizeString(getCPFileSize(), 'KB') }}
+        </div>
+        <div class="align-content-center">
+          <canvas id="after"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="quality-selector">
   <div class="container">
     <div class="row justify-content-md-center">
@@ -13,28 +39,9 @@
   </div>
 </div>
 
-<div class="image-comparer-container">
-  <div [hidden]="orig != undefined">
-    <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
-  </div>
-  <div [hidden]="orig == undefined" class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div *ngIf="getOGFileSize() > -1">
-          {{ toSizeString(getOGFileSize(), 'KB') }}
-        </div>
-        <canvas id="before"></canvas>
-      </div>
-      <div class="col-md-6">
-        <div *ngIf="getCPFileSize() > -1" >
-          {{ toSizeString(getCPFileSize(), 'KB') }}
-        </div>
-        <canvas id="after"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div>
-  <button (click)="handleDownload()">Download</button>
+<div class="text-right mr-5">
+  Output:
+  <input type="text" class="mr-1" [formControl]="outputNameField" [disabled]="!selectedImg()">
+  .jpeg
+  <button type="button" class="btn btn-dark ml-3" (click)="handleDownload()" [disabled]="!selectedImg()">Download</button>
 </div>

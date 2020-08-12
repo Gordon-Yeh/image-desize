@@ -8,6 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2vh;
+}
+
+.align-content-center {
+  // will align content in the center
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img-wrapper {
