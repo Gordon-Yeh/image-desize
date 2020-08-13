@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormControl, FormControlName } from '@angular/forms';
-import { ThrowStmt } from '@angular/compiler';
+import { FormControl } from '@angular/forms';
+type View = 'compare' | 'y' | 'vertical';
 
 @Component({
   selector: 'image-comparer',
@@ -13,6 +13,11 @@ export class ImageComparerComponent implements OnInit {
   outputNameField = new FormControl("output");
   orig : File;
   cmprsd : File;
+  viewMode : View = 'y';
+  compareXCanvas : HTMLCanvasElement;
+  compareYCanvas : HTMLCanvasElement;
+  YCanvas : HTMLCanvasElement;
+  inputCanvas : HTMLCanvasElement;
 
   constructor(private ref: ChangeDetectorRef) { }
 
@@ -23,22 +28,27 @@ export class ImageComparerComponent implements OnInit {
     return e.clientWidth - padding;
   }
 
-  drawImage(canvas : HTMLCanvasElement, url : string, callback = () => {}) : void {
+  drawImage(canvas : HTMLCanvasElement, url : string, callback=null, resize=true) : void {
     let img = new Image();
     img.src = url;
 
     img.onload = function() {
-      // set canvas to width for the parents element (not including padding/margin)
-      var dWidth = ImageComparerComponent.getInnerWidth(canvas.parentElement);
-      var dHeight = dWidth / img.width * img.height;
-      // image should not exceed a portion of the screen
-      if (dHeight > window.innerHeight * 0.8) {
-        dHeight = window.innerHeight * 0.8;
-        dWidth = dHeight / img.height * img.width;
+      if (resize) {
+        // set canvas to width for the parents element (not including padding/margin)
+        var dWidth = ImageComparerComponent.getInnerWidth(canvas.parentElement);
+        var dHeight = dWidth / img.width * img.height;
+        // image should not exceed a portion of the screen
+        if (dHeight > window.innerHeight * 0.8) {
+          dHeight = window.innerHeight * 0.8;
+          dWidth = dHeight / img.height * img.width;
+        }
+      } else {
+        var dWidth = img.width;
+        var dHeight = img.height;
       }
+      
       canvas.width = dWidth;
       canvas.height = dHeight;
-
       var ctx = canvas.getContext('2d');
       ctx.drawImage(img,
         0, 0,
@@ -46,7 +56,9 @@ export class ImageComparerComponent implements OnInit {
         0, 0,
         dWidth, dHeight
       );
-      callback();
+
+      if (callback)
+        callback();
     }
   }
 
@@ -56,6 +68,10 @@ export class ImageComparerComponent implements OnInit {
 
   getCPFileSize() : number {
     return this.cmprsd ? this.cmprsd.size : -1;
+  }
+
+  getCurrentViewModel() : View {
+    return this.viewMode;
   }
 
   selectedImg() : boolean {
@@ -73,13 +89,36 @@ export class ImageComparerComponent implements OnInit {
     return `${bytes / denom[unit]} ${unit}`;
   }
 
-  drawBlob(canvas : HTMLCanvasElement, blob : Blob, callback = () => {}) : void {
+  drawBlob(canvas : HTMLCanvasElement, blob : Blob, callback=(()=>{}), resize=true) : void {
     // TODO: check that blob is an image file
     var bUrl = URL.createObjectURL(blob);
     this.drawImage(canvas, bUrl, () => {
       callback();
       URL.revokeObjectURL(bUrl);
-    });
+    }, resize);
+  }
+
+  drawView() {
+    switch (this.viewMode) {
+      case 'compare':
+        this.copyInputTo(this.compareXCanvas, 100);
+        this.copyInputTo(this.compareYCanvas, this.quality.value);
+      case 'y':
+        this.copyInputTo(this.YCanvas, this.quality.value);
+      case 'vertical':
+    }
+  }
+
+  copyInputTo(to : HTMLCanvasElement, quality : number) {
+    if (quality === 100) {
+      this.drawBlob(to, this.orig);
+    }
+    this.inputCanvas.toBlob((b : File) => {
+      this.cmprsd = b;
+      this.drawBlob(to, b);
+      // a fix for file size display not being updated properly
+      this.ref.detectChanges();
+    }, 'image/jpeg', quality / 100);
   }
 
   handleDownload() {
@@ -94,16 +133,14 @@ export class ImageComparerComponent implements OnInit {
 
   handleQualityChange() {
     console.log('handleQualityChange', this.quality.value);
-    var before = document.getElementById('before') as HTMLCanvasElement;
-    var after = document.getElementById('after') as HTMLCanvasElement;
-    // apply JPEG compressing using 
-    before.toBlob((b : File) => {
-      console.log(b);
-      this.cmprsd = b;
-      this.drawBlob(after, b);
-      // a fix for file size display not being updated properly
-      this.ref.detectChanges();
-    }, 'image/jpeg', this.quality.value / 100);
+    this.drawView();
+  }
+
+  handleViewChange(mode : View) {
+    if (mode === this.viewMode) {
+      return;
+    }
+    this.drawView();
   }
 
   imgFileSelectHandler() {
@@ -115,19 +152,20 @@ export class ImageComparerComponent implements OnInit {
       return;
     }
     this.orig = file;
+    this.drawBlob(this.inputCanvas, file, () => { this.drawView() }, false);
     this.outputNameField.setValue(`${file.name.split('.')[0]}-compressed`);
-    var before = document.getElementById('before') as HTMLCanvasElement;
-    this.drawBlob(before, file, () => { this.handleQualityChange() });
   }
 
   ngOnInit() {
+    this.inputCanvas = document.getElementById('input-canvas') as HTMLCanvasElement;
+    this.compareXCanvas = document.getElementById('before') as HTMLCanvasElement;
+    this.compareYCanvas = document.getElementById('after') as HTMLCanvasElement;
+    this.YCanvas = document.getElementById('y-canvas') as HTMLCanvasElement;
+
     // resize images appropriately if view size changes
     window.addEventListener('resize', () => {
       if (this.orig) {
-        var before = document.getElementById('before') as HTMLCanvasElement;
-        var after = document.getElementById('after') as HTMLCanvasElement;
-        this.drawBlob(before, this.orig);
-        this.drawBlob(after, this.cmprsd);
+        this.drawView();
       }
     })
   }

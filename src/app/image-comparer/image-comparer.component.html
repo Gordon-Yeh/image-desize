@@ -4,7 +4,19 @@
   </div>
   <div [hidden]="orig == undefined" class="container">
     <div class="row gx-3 justify-content-md-center">
-      <div class="col-md-6 border-right border-secondary">
+
+      <!-- Y View Components -->
+      <div class="col-md" [hidden]="getCurrentViewModel() !== 'y'">
+        <div class="align-content-center">
+          <canvas id="y-canvas"></canvas>
+        </div>
+        <div *ngIf="getCPFileSize() > -1" class="text-center" >
+          {{ toSizeString(getCPFileSize(), 'KB') }}
+        </div>
+      </div>
+      
+      <!-- Compare View Components -->
+      <div class="col-md-6 border-right border-secondary" [hidden]="getCurrentViewModel() !== 'compare'">
         <div *ngIf="getOGFileSize() > -1" class="text-right">
           {{ toSizeString(getOGFileSize(), 'KB') }}
         </div>
@@ -12,7 +24,7 @@
           <canvas id="before"></canvas>
         </div>
       </div>
-      <div class="col-md-6 border-left border-secondary">
+      <div class="col-md-6 border-left border-secondary" [hidden]="getCurrentViewModel() !== 'compare'">
         <div *ngIf="getCPFileSize() > -1" >
           {{ toSizeString(getCPFileSize(), 'KB') }}
         </div>
@@ -22,6 +34,7 @@
       </div>
     </div>
   </div>
+  <canvas id="input-canvas" hidden></canvas>
 </div>
 
 <div class="quality-selector">
