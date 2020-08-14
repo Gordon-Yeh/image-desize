@@ -3,10 +3,28 @@
     <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
   </div>
   <div [hidden]="orig == undefined" class="container">
-    <div class="row gx-3 justify-content-md-center">
+    <!-- View Dropdown Select-->
+    <div class="view-selection dropdown">
+      <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+        {{ 
+          {
+            'compare': 'Compare View',
+            'y': 'Y View',
+            'vertical': 'Vertical View'
+          }[viewMode]
+        }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" (click)="handleViewChange('compare')">Compare View</a></li>
+        <li><a class="dropdown-item" (click)="handleViewChange('y')">Y View</a></li>
+        <li><a class="dropdown-item" (click)="handleViewChange('vertical')">Vertical View</a></li>
+      </ul>
+    </div>
 
-      <!-- Y View Components -->
-      <div class="col-md" [hidden]="getCurrentViewModel() !== 'y'">
+
+    <!-- Y View Components -->
+    <div class="row gx-3 justify-content-md-center" [hidden]="getCurrentViewModel() !== 'y'">
+      <div class="col-md">
         <div class="align-content-center">
           <canvas id="y-canvas"></canvas>
         </div>
@@ -14,9 +32,11 @@
           {{ toSizeString(getCPFileSize(), 'KB') }}
         </div>
       </div>
+    </div>
       
-      <!-- Compare View Components -->
-      <div class="col-md-6 border-right border-secondary" [hidden]="getCurrentViewModel() !== 'compare'">
+    <!-- Compare View Components -->
+    <div class="row gx-3 justify-content-md-center" [hidden]="getCurrentViewModel() !== 'compare'">
+      <div class="col-md-6">
         <div *ngIf="getOGFileSize() > -1" class="text-right">
           {{ toSizeString(getOGFileSize(), 'KB') }}
         </div>
@@ -24,7 +44,7 @@
           <canvas id="before"></canvas>
         </div>
       </div>
-      <div class="col-md-6 border-left border-secondary" [hidden]="getCurrentViewModel() !== 'compare'">
+      <div class="col-md-6">
         <div *ngIf="getCPFileSize() > -1" >
           {{ toSizeString(getCPFileSize(), 'KB') }}
         </div>
@@ -32,7 +52,9 @@
           <canvas id="after"></canvas>
         </div>
       </div>
+      <div class="vertical-split-line"></div>
     </div>
+
   </div>
   <canvas id="input-canvas" hidden></canvas>
 </div>

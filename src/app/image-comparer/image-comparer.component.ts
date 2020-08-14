@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 type View = 'compare' | 'y' | 'vertical';
 
@@ -140,6 +140,7 @@ export class ImageComparerComponent implements OnInit {
     if (mode === this.viewMode) {
       return;
     }
+    this.viewMode = mode;
     this.drawView();
   }
 

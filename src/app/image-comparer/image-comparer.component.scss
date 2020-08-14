@@ -1,6 +1,8 @@
 @import "../colours.scss";
 
 .image-comparer-container {
+  position: relative;
+
   background-color: $t-l-grey;
   min-height: 80vh;
   width: 100vw;
@@ -9,6 +11,26 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 2vh;
+}
+
+.view-selection {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .dropdown-toggle {
+    font-size: 1.3rem;
+  }
+}
+
+.vertical-split-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 2px;
+  padding: 0;
+  background-color: black;
 }
 
 .align-content-center {
