@@ -1,23 +1,25 @@
-@import "../colours.scss";
+@use "../colours";
+@import "../../assets/stylesheets/bootstrap/functions",
+  "../../assets/stylesheets/bootstrap/variables",
+  "../../assets/stylesheets/bootstrap/mixins/breakpoints";
+
+.bg-lg {
+  background-color: colours.$light-grey;
+}
 
 .image-comparer-container {
   position: relative;
-
-  background-color: $t-l-grey;
   min-height: 80vh;
-  width: 100vw;
   // will align content in the center
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2vh;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .view-selection {
-  position: absolute;
-  top: 0;
-  left: 0;
-
+  background-color: colours.$grey;
   .dropdown-toggle {
     font-size: 1.3rem;
   }
@@ -28,9 +30,9 @@
   top: 0;
   left: 50%;
   height: 100%;
-  width: 2px;
+  width: 3px;
   padding: 0;
-  background-color: black;
+  background-color: colours.$grey;
 }
 
 .align-content-center {
@@ -46,9 +48,35 @@
 
 .quality-selector {
   padding: 20px 0 20px 0;
+  text-align: center;
+  & .form-range {
+    width: 500px;
+    margin: 0 10px 0 10px;
+  }
+  @include media-breakpoint-down(md) {
+    & .form-range {
+      width: 200px;
+    }
+  }
+  .numeric-display {
+    padding: 8px 5px 8px 5px;
+    text-align: center;
+    border: 1px solid colours.$grey;
+  }
 }
 
-.numeric-display {
+.file-size-display {
+  font-size: 1.1rem;
+  padding: 5px 0 10px 0;
+  justify-content: center;
   text-align: center;
-  border: 1px solid $t-grey;
+}
+
+.hidden-md {
+  display: none;
+}
+@include media-breakpoint-up(md) {
+  .hidden-md {
+    display: block;
+  }
 }

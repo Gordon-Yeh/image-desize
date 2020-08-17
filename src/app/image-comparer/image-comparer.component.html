@@ -1,77 +1,85 @@
-<div class="image-comparer-container">
-  <div [hidden]="orig != undefined">
-    <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
+
+<div class="bg-lg">
+  <!-- View Dropdown Select-->
+  <div class="view-selection dropdown">
+    <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      {{ 
+        {
+          'compare': 'Compare View',
+          'y': 'Y View'
+        }[viewMode]
+      }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" (click)="handleViewChange('compare')">Compare View</a></li>
+      <li><a class="dropdown-item" (click)="handleViewChange('y')">Y View</a></li>
+    </ul>
   </div>
-  <div [hidden]="orig == undefined" class="container">
-    <!-- View Dropdown Select-->
-    <div class="view-selection dropdown">
-      <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-        {{ 
-          {
-            'compare': 'Compare View',
-            'y': 'Y View',
-            'vertical': 'Vertical View'
-          }[viewMode]
-        }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" (click)="handleViewChange('compare')">Compare View</a></li>
-        <li><a class="dropdown-item" (click)="handleViewChange('y')">Y View</a></li>
-        <li><a class="dropdown-item" (click)="handleViewChange('vertical')">Vertical View</a></li>
-      </ul>
+
+  <div class="image-comparer-container">
+    <div [hidden]="orig != undefined">
+      <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
     </div>
 
+    <!-- View Container Wrapper -->
+    <div [hidden]="orig == undefined" class="container">
 
-    <!-- Y View Components -->
-    <div class="row gx-3 justify-content-md-center" [hidden]="getCurrentViewModel() !== 'y'">
-      <div class="col-md">
-        <div class="align-content-center">
-          <canvas id="y-canvas"></canvas>
+      <!-- Y View Components -->
+      <div class="container" [hidden]="getCurrentViewModel() !== 'y'">
+        <div class="row gx-3 justify-content-md-center">
+          <div class="col-md">
+            <div class="align-content-center">
+              <canvas id="y-canvas"></canvas>
+            </div>
+            <div *ngIf="getCPFileSize() > -1" class="file-size-display">
+              {{ toSizeString(getCPFileSize(), 'KB') }}
+              <span>
+                ({{ getFileDifference() >= 0 ? '+' : '' }}{{ getFileDifference() | percent }})
+              </span>
+            </div>
+          </div>
         </div>
-        <div *ngIf="getCPFileSize() > -1" class="text-center" >
-          {{ toSizeString(getCPFileSize(), 'KB') }}
-        </div>
-      </div>
-    </div>
-      
-    <!-- Compare View Components -->
-    <div class="row gx-3 justify-content-md-center" [hidden]="getCurrentViewModel() !== 'compare'">
-      <div class="col-md-6">
-        <div *ngIf="getOGFileSize() > -1" class="text-right">
-          {{ toSizeString(getOGFileSize(), 'KB') }}
-        </div>
-        <div class="align-content-center">
-          <canvas id="before"></canvas>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div *ngIf="getCPFileSize() > -1" >
-          {{ toSizeString(getCPFileSize(), 'KB') }}
-        </div>
-        <div class="align-content-center">
-          <canvas id="after"></canvas>
-        </div>
-      </div>
-      <div class="vertical-split-line"></div>
-    </div>
+      </div> <!-- Y View Components -->
 
+      <!-- Compare View Components -->
+      <div class="container" [hidden]="getCurrentViewModel() !== 'compare'">
+        <div class="row gx-5 justify-content-md-center">
+          <!-- INPUT -->
+          <div class="col-md-6 col-lg-6">
+            <div class="align-content-center">
+              <canvas id="before"></canvas>
+            </div>
+            <div *ngIf="getOGFileSize() > -1" class="file-size-display">
+              {{ toSizeString(getOGFileSize(), 'KB') }}
+            </div>
+          </div>
+          <!-- OUTPUT -->
+          <div class="col-md-6 col-lg-6">
+            <div class="align-content-center">
+              <canvas id="after"></canvas>
+            </div>
+            <div *ngIf="getCPFileSize() > -1" class="file-size-display">
+              {{ toSizeString(getCPFileSize(), 'KB') }}
+              <span>
+                ({{ getFileDifference() >= 0 ? '+' : '' }}{{ getFileDifference() | percent }})
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="vertical-split-line hidden-md"></div>
+      </div> <!-- Compare View Components -->
+    
+    </div> <!-- View Container Wrapper -->
+
+    <canvas id="input-canvas" hidden></canvas>
   </div>
-  <canvas id="input-canvas" hidden></canvas>
 </div>
 
 <div class="quality-selector">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col-md-6">
-        <input [formControl]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
-      </div>
-      <div class="col-md-1">
-        <div class="numeric-display">
-          {{ quality.value }} %
-        </div>
-      </div>
-    </div>
-  </div>
+  <input [formControl]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
+  <span class="numeric-display">
+    {{ quality.value }} %
+  </span>
 </div>
 
 <div class="text-right mr-5">

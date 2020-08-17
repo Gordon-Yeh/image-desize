@@ -74,6 +74,10 @@ export class ImageComparerComponent implements OnInit {
     return this.compr ? this.compr.file.size : -1;
   }
 
+  getFileDifference() : number {
+    return (this.compr.file.size - this.orig.file.size) / this.orig.file.size;
+  }
+
   getCurrentViewModel() : View {
     return this.viewMode;
   }
