@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 type View = 'compare' | 'y' | 'vertical';
+interface Jpeg {
+  file : File,
+  quality : number,
+};
 
 @Component({
   selector: 'image-comparer',
@@ -11,8 +15,8 @@ export class ImageComparerComponent implements OnInit {
   quality = new FormControl(85);
   imgPathField = new FormControl();
   outputNameField = new FormControl("output");
-  orig : File;
-  cmprsd : File;
+  orig : Jpeg;
+  compr : Jpeg;
   viewMode : View = 'y';
   compareXCanvas : HTMLCanvasElement;
   compareYCanvas : HTMLCanvasElement;
@@ -63,11 +67,11 @@ export class ImageComparerComponent implements OnInit {
   }
 
   getOGFileSize() : number {
-    return this.orig ? this.orig.size : -1;
+    return this.orig ? this.orig.file.size : -1;
   }
 
   getCPFileSize() : number {
-    return this.cmprsd ? this.cmprsd.size : -1;
+    return this.compr ? this.compr.file.size : -1;
   }
 
   getCurrentViewModel() : View {
@@ -101,30 +105,33 @@ export class ImageComparerComponent implements OnInit {
   drawView() {
     switch (this.viewMode) {
       case 'compare':
-        this.copyInputTo(this.compareXCanvas, 100);
-        this.copyInputTo(this.compareYCanvas, this.quality.value);
+        this.copyInputTo(this.compareXCanvas, 1);
+        this.copyInputTo(this.compareYCanvas, this.quality.value / 100);
       case 'y':
-        this.copyInputTo(this.YCanvas, this.quality.value);
+        this.copyInputTo(this.YCanvas, this.quality.value / 100);
       case 'vertical':
     }
   }
 
   copyInputTo(to : HTMLCanvasElement, quality : number) {
-    if (quality === 100) {
-      this.drawBlob(to, this.orig);
+    if (quality === 1) {
+      this.drawBlob(to, this.orig.file);
+    } else if (this.compr && this.compr.quality == quality) {
+      this.drawBlob(to, this.compr.file);
+    } else {
+      this.inputCanvas.toBlob((b : File) => {
+        this.compr = { file: b, quality };
+        this.drawBlob(to, b);
+        // a fix for file size display not being updated properly
+        this.ref.detectChanges();
+      }, 'image/jpeg', quality);
     }
-    this.inputCanvas.toBlob((b : File) => {
-      this.cmprsd = b;
-      this.drawBlob(to, b);
-      // a fix for file size display not being updated properly
-      this.ref.detectChanges();
-    }, 'image/jpeg', quality / 100);
   }
 
   handleDownload() {
     var a = document.createElement('a');
     a.download = this.outputNameField.value + '.jpeg';
-    var bUrl = URL.createObjectURL(this.cmprsd);
+    var bUrl = URL.createObjectURL(this.compr.file);
     a.href = bUrl;
     a.click();
     URL.revokeObjectURL(bUrl);
@@ -152,7 +159,7 @@ export class ImageComparerComponent implements OnInit {
       alert(`${file.name} is not a JPEG file`);
       return;
     }
-    this.orig = file;
+    this.orig = { file, quality: 1 };
     this.drawBlob(this.inputCanvas, file, () => { this.drawView() }, false);
     this.outputNameField.setValue(`${file.name.split('.')[0]}-compressed`);
   }
@@ -165,7 +172,7 @@ export class ImageComparerComponent implements OnInit {
 
     // resize images appropriately if view size changes
     window.addEventListener('resize', () => {
-      if (this.orig) {
+      if (this.selectedImg()) {
         this.drawView();
       }
     })
