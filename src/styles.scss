@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/stylesheets/bootstrap/bootstrap.scss";
+@import "./assets/fonts/fonts.css";
+
+body {
+  font-weight: 200;
+  font-family: 'Roboto', sans-serif;
+  color: #505050;
+}
