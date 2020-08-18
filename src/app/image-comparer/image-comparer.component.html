@@ -18,7 +18,7 @@
 
   <div class="image-comparer-container">
     <div [hidden]="orig != undefined">
-      <input id="file-selector" [formControl]="imgPathField" type="file" (change)="imgFileSelectHandler()">
+      <input id="file-selector" type="file" (change)="imgFileSelectHandler()">
     </div>
 
     <!-- View Container Wrapper -->
@@ -32,9 +32,9 @@
               <canvas id="y-canvas"></canvas>
             </div>
             <div *ngIf="getCPFileSize() > -1" class="file-size-display">
-              {{ toSizeString(getCPFileSize(), 'KB') }}
+              {{ getCPFileSize() | bytes:'KB' }}
               <span>
-                ({{ getFileDifference() >= 0 ? '+' : '' }}{{ getFileDifference() | percent }})
+                ({{ getFileDifference() | percentWithSign }})
               </span>
             </div>
           </div>
@@ -50,7 +50,7 @@
               <canvas id="before"></canvas>
             </div>
             <div *ngIf="getOGFileSize() > -1" class="file-size-display">
-              {{ toSizeString(getOGFileSize(), 'KB') }}
+              {{ getOGFileSize() | bytes:'KB' }}
             </div>
           </div>
           <!-- OUTPUT -->
@@ -59,9 +59,9 @@
               <canvas id="after"></canvas>
             </div>
             <div *ngIf="getCPFileSize() > -1" class="file-size-display">
-              {{ toSizeString(getCPFileSize(), 'KB') }}
+              {{ getCPFileSize() | bytes:'KB' }}
               <span>
-                ({{ getFileDifference() >= 0 ? '+' : '' }}{{ getFileDifference() | percent }})
+                ({{ getFileDifference() | percentWithSign }})
               </span>
             </div>
           </div>
@@ -76,15 +76,15 @@
 </div>
 
 <div class="quality-selector">
-  <input [formControl]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
+  <input [(ngModel)]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
   <span class="numeric-display">
-    {{ quality.value }} %
+    {{ quality }} %
   </span>
 </div>
 
 <div class="text-right mr-5">
   Output:
-  <input type="text" class="mr-1" [formControl]="outputNameField" [disabled]="!selectedImg()">
+  <input type="text" class="mr-1" [(ngModel)]="outputNameField" [disabled]="!selectedImg()">
   .jpeg
   <button type="button" class="btn btn-dark ml-3" (click)="handleDownload()" [disabled]="!selectedImg()">Download</button>
 </div>

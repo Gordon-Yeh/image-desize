@@ -12,12 +12,13 @@ interface Jpeg {
   styleUrls: ['./image-comparer.component.scss']
 })
 export class ImageComparerComponent implements OnInit {
-  quality = new FormControl(85);
-  imgPathField = new FormControl();
-  outputNameField = new FormControl("output");
+  /* control fields */
+  quality = 85;
+  outputNameField = 'output';
   orig : Jpeg;
   compr : Jpeg;
   viewMode : View = 'y';
+  /* HTML Elements */
   compareXCanvas : HTMLCanvasElement;
   compareYCanvas : HTMLCanvasElement;
   YCanvas : HTMLCanvasElement;
@@ -86,17 +87,6 @@ export class ImageComparerComponent implements OnInit {
     return this.orig !== undefined;
   }
 
-  toSizeString(bytes : number, unit : 'B' | 'KB' | 'MB' | 'GB') : string {
-    var denom = {
-      'B': 1,
-      'KB': 1_000,
-      'MB': 1_000_000,
-      'GB': 1_000_000_000
-    };
-
-    return `${bytes / denom[unit]} ${unit}`;
-  }
-
   drawBlob(canvas : HTMLCanvasElement, blob : Blob, callback=(()=>{}), resize=true) : void {
     // TODO: check that blob is an image file
     var bUrl = URL.createObjectURL(blob);
@@ -110,9 +100,9 @@ export class ImageComparerComponent implements OnInit {
     switch (this.viewMode) {
       case 'compare':
         this.copyInputTo(this.compareXCanvas, 1);
-        this.copyInputTo(this.compareYCanvas, this.quality.value / 100);
+        this.copyInputTo(this.compareYCanvas, this.quality / 100);
       case 'y':
-        this.copyInputTo(this.YCanvas, this.quality.value / 100);
+        this.copyInputTo(this.YCanvas, this.quality / 100);
       case 'vertical':
     }
   }
@@ -134,7 +124,7 @@ export class ImageComparerComponent implements OnInit {
 
   handleDownload() {
     var a = document.createElement('a');
-    a.download = this.outputNameField.value + '.jpeg';
+    a.download = this.outputNameField + '.jpeg';
     var bUrl = URL.createObjectURL(this.compr.file);
     a.href = bUrl;
     a.click();
@@ -143,7 +133,7 @@ export class ImageComparerComponent implements OnInit {
   }
 
   handleQualityChange() {
-    console.log('handleQualityChange', this.quality.value);
+    console.log('handleQualityChange', this.quality);
     this.drawView();
   }
 
@@ -165,7 +155,7 @@ export class ImageComparerComponent implements OnInit {
     }
     this.orig = { file, quality: 1 };
     this.drawBlob(this.inputCanvas, file, () => { this.drawView() }, false);
-    this.outputNameField.setValue(`${file.name.split('.')[0]}-compressed`);
+    this.outputNameField = `${file.name.split('.')[0]}-compressed`;
   }
 
   ngOnInit() {
