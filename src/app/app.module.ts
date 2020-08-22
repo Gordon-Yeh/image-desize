@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { ImageComparerComponent } from './image-comparer/image-comparer.component';
 import { PercentWithSignPipe } from './pipes/percent-with-sign.pipe';
 import { BytesPipe } from './pipes/bytes.pipe';
+import { GalleryComponent } from './gallery/gallery.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageComparerComponent,
     PercentWithSignPipe,
-    BytesPipe
+    BytesPipe,
+    GalleryComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

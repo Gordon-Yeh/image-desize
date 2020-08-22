@@ -1,0 +1,18 @@
+<div class="gallery-container">
+  <input id="fileselector" (input)="handleFileSelect()" type="file" multiple #fileselector>
+  <!-- FIXME: Vulnerable to XSS, if user selects a malicious file containing a script -->
+  <div>
+    <div
+      *ngFor="let item of imageCompressionService.getImgs() | keyvalue"
+      class="img-frame"
+      [class.active]="selection[item.key]"
+      [style.background-image]="'url(' + item.value.compressed.url + ')'"
+      (click)="handleImgHighlight(item.key)"
+    >
+      <div class="attribute-label">
+        <span>Quality: {{ item.value.quality }}</span>
+        <span>Output Size: {{ item.value.compressed.f.size | bytes:'MB' }}</span>
+      </div>
+    </div>
+  </div>
+</div>
