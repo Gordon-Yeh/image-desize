@@ -4,8 +4,9 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ImageComparerComponent } from './image-comparer/image-comparer.component';
 
 const routes: Routes = [
-  { path: '', component: GalleryComponent },
-  { path: 'edit', component: ImageComparerComponent }
+  { path: 'edit/:id', component: ImageComparerComponent },
+  { path: 'gallery', component: GalleryComponent },
+  { path: '', redirectTo: '/gallery', pathMatch: 'full'}
 ];
 
 @NgModule({

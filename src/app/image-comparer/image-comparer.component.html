@@ -17,12 +17,12 @@
   </div>
 
   <div class="image-comparer-container">
-    <div [hidden]="orig != undefined">
+    <div [hidden]="selectedImg()">
       <input id="file-selector" type="file" (change)="imgFileSelectHandler()">
     </div>
 
     <!-- View Container Wrapper -->
-    <div [hidden]="orig == undefined" class="container">
+    <div [hidden]="!selectedImg()" class="container">
 
       <!-- Y View Components -->
       <div class="container" [hidden]="getCurrentViewModel() !== 'y'">

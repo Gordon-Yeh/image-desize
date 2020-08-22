@@ -1,13 +1,21 @@
-export class FileWithURL {
-  f: File;
-  url: string;
+export default class FileWithURL {
+  #f: File | Blob;
+  #url: string;
 
   constructor(f: File) {
-    this.f = f;
-    this.url = URL.createObjectURL(f);
+    this.#f = f;
+    this.#url = URL.createObjectURL(f);
+  }
+
+  get url() {
+    return this.#url;
+  }
+
+  get f() {
+    return this.#f;
   }
 
   release() {
-    URL.revokeObjectURL(this.url);
+    URL.revokeObjectURL(this.#url);
   }
 }

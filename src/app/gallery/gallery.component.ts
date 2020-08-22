@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FileWithURL } from '../models/FileWithURL';
+import { Router } from '@angular/router';
+import FileWithURL from '../models/FileWithURL';
 import { ImageCompressionService } from '../services/image-compression.service';
+const DOUBLECLICK_THRESHHOLD = 200;
 
 @Component({
   selector: 'app-gallery',
@@ -10,13 +12,33 @@ import { ImageCompressionService } from '../services/image-compression.service';
 export class GalleryComponent implements OnInit {
   images = {};
   selection = {};
+  clickTimer: {[imgId: number]: number}= {};
   imageCounter = 0;
+  lastClick = 0;
 
-  constructor(public imageCompressionService: ImageCompressionService) { }
+  constructor(
+    public imageCompressionService: ImageCompressionService,
+    private route: Router,
+  ) {
+    console.log('gallery.component constructor');
+  }
 
-  handleImgHighlight(key) {
-    console.log("selected img", key)
-    this.selection[key] = !this.selection[key];
+  clickTest() {
+    let now = new Date().valueOf();
+    console.log(`current time: ${now}, time between last and now: ${now-this.lastClick}`);
+    this.lastClick = now;
+  }
+
+  handleImgFrameClick(imgId) {
+    let now = new Date().valueOf();
+    let last = this.clickTimer[imgId];
+    // is this a double click event? 
+    if (last && now-last < DOUBLECLICK_THRESHHOLD) {
+      this.route.navigateByUrl('/edit/' + imgId);
+    }
+    this.clickTimer[imgId] = now;
+    console.log("selected img", imgId)
+    this.selection[imgId] = !this.selection[imgId];
   }
 
   handleFileSelect() {
@@ -30,5 +52,6 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('gallery.component OnInit');
   }
 }
