@@ -15,11 +15,14 @@ interface ImgInfo {
 export class ImageCompressionService {
   images: { [key: number]: ImgInfo; } = {};
   idCounter = 0;
+  firstImg = 1;
+  lastImg = 1;
 
   constructor() { }
 
   addImg(img: File): ImgInfo {
     this.idCounter++;
+    this.lastImg = this.idCounter;
     return this.images[this.idCounter] = {
       'imgId': this.idCounter,
       'original': new FileWithURL(img),
@@ -34,6 +37,31 @@ export class ImageCompressionService {
 
   getImg(id: number): ImgInfo {
     return this.images[id];
+  }
+
+  // get the next in order of ascending img id
+  // will wrap around to the first img once the end is reached 
+  getNextImg(id: number, reverse=false): number {
+    let incre = reverse ? -1 : 1;
+    // step forward from the given id, until a image is found
+    let i = id;
+    do {
+      i = (i+incre) % (this.idCounter+1);
+      if (i == 0)
+        i = this.idCounter;
+      if (this.images.hasOwnProperty(i))
+        return i;
+    } while (i != id);
+
+    return id;
+  }
+
+  isFirstImg(id: number) : boolean {
+    return this.firstImg == id;
+  }
+
+  isLastImg(id: number) : boolean {
+    return this.lastImg == id;
   }
 
   compressImg(imgId: number, quality: number) : Promise<ImgInfo> {

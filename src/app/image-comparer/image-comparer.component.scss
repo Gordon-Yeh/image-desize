@@ -3,8 +3,29 @@
   "../../assets/stylesheets/bootstrap/variables",
   "../../assets/stylesheets/bootstrap/mixins/breakpoints";
 
-.bg-lg {
+.edit-container {
+  position: relative;
   background-color: colours.$light-grey;
+
+  .hug-left-horizontal {
+    position: absolute;
+    left: 0;
+    top: 50%;
+  }
+  
+  .hug-right-horizontal {
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+}
+
+.next-btn {
+  font-size: 40px;
+  &:hover {
+    color: colours.$blue;
+    cursor: pointer;
+  }
 }
 
 .image-comparer-container {

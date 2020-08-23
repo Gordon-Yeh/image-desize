@@ -1,5 +1,5 @@
 
-<div class="bg-lg">
+<div class="edit-container">
   <!-- View Dropdown Select-->
   <div class="view-selection dropdown">
     <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
@@ -17,13 +17,8 @@
   </div>
 
   <div class="image-comparer-container">
-    <div [hidden]="selectedImg()">
-      <input id="file-selector" type="file" (change)="imgFileSelectHandler()">
-    </div>
-
     <!-- View Container Wrapper -->
-    <div [hidden]="!selectedImg()" class="container">
-
+    <div class="container">
       <!-- Y View Components -->
       <div class="container" [hidden]="getCurrentViewModel() !== 'y'">
         <div class="row gx-3 justify-content-md-center">
@@ -72,6 +67,14 @@
     </div> <!-- View Container Wrapper -->
 
     <canvas id="input-canvas" hidden></canvas>
+  </div>
+
+  <div (click)="handleChangeImg(true)" [hidden]="imgService.isFirstImg(imgId)" class="hug-left-horizontal next-btn ml-2">
+    <i class="fas fa-arrow-alt-circle-left"></i>
+  </div>
+
+  <div (click)="handleChangeImg()" [hidden]="imgService.isLastImg(imgId)" class="hug-right-horizontal next-btn mr-2">
+    <i class="fas fa-arrow-alt-circle-right"></i>
   </div>
 </div>
 

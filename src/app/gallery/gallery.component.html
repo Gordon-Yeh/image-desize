@@ -1,17 +1,23 @@
 <div class="gallery-container" (click)="clickTest()">
   <input id="fileselector" (input)="handleFileSelect()" type="file" multiple #fileselector>
+
+  <span>Quality: </span>
+  <input [(ngModel)]="quality" type="number" min="0" max="100" id="quality">
+  <button type="button" (click)="handleApplyQuality()" class="btn btn-dark ml-3">Apply</button>
+
   <!-- FIXME: Vulnerable to XSS, if user selects a malicious file containing a script -->
-  <div>
+  <div class="img-container">
     <div
-      *ngFor="let item of imageCompressionService.getImgs() | keyvalue"
+      *ngFor="let item of imgService.getImgs() | keyvalue"
       class="img-frame"
-      [class.active]="selection[item.key]"
-      [style.background-image]="'url(' + item.value.compressed.url + ')'"
+      [attr.data-id]="item.key"
+      [class.selected]="selected[item.key]"
+      [style.background-image]="'url(' + item.value.original.url + ')'"
       (click)="handleImgFrameClick(item.key)"
     >
       <div class="attribute-label">
-        <span>Quality: {{ item.value.quality }}</span>
-        <span>Output Size: {{ item.value.compressed.f.size | bytes:'MB' }}</span>
+        <span class="mr-3"><b>Quality</b>: {{ item.value.quality/100 | percent }}</span>
+        <span><b>Output Size</b>: {{ item.value.compressed.f.size | bytes:'MB' }}</span>
       </div>
     </div>
   </div>

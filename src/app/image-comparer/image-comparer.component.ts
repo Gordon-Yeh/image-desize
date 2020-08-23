@@ -85,6 +85,13 @@ export class ImageComparerComponent implements OnInit {
     this.drawView();
   }
 
+  handleChangeImg(orderReversed=false) {
+    this.imgId = this.imgService.getNextImg(this.imgId, orderReversed);
+    this.imageInfo = this.imgService.getImg(this.imgId);
+    this.outputNameField = `${this.imageInfo.original.f.name.split('.')[0]}-compressed`;
+    this.drawView();
+  }
+
   imgFileSelectHandler() {
     var fileInput = document.getElementById('file-selector') as HTMLFormElement;
     var file : File = fileInput.files[0];
@@ -108,6 +115,7 @@ export class ImageComparerComponent implements OnInit {
     this.imgId = +this.route.snapshot.paramMap.get('id');
     this.imageInfo = this.imgService.getImg(this.imgId);
     this.outputNameField = `${this.imageInfo.original.f.name.split('.')[0]}-compressed`;
+    this.quality = this.imageInfo.quality;
     this.drawView();
   }
 }
