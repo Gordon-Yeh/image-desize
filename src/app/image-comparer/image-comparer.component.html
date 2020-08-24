@@ -57,11 +57,11 @@
     <canvas id="input-canvas" hidden></canvas>
   </div>
 
-  <div (click)="handleChangeImg(true)" [hidden]="imgService.isFirstImg(imgId)" class="hug-left-horizontal next-btn ml-2">
+  <div (click)="handleChangeImg(true)" [hidden]="imgService.isFirstImg(imgId)" class="pos-fixed left center next-btn ml-2">
     <i class="fas fa-arrow-alt-circle-left"></i>
   </div>
 
-  <div (click)="handleChangeImg()" [hidden]="imgService.isLastImg(imgId)" class="hug-right-horizontal next-btn mr-2">
+  <div (click)="handleChangeImg()" [hidden]="imgService.isLastImg(imgId)" class="pos-fixed right center next-btn mr-2">
     <i class="fas fa-arrow-alt-circle-right"></i>
   </div>
 </div>

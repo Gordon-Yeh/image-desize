@@ -7,26 +7,6 @@
   position: relative;
   background-color: colours.$light-grey;
   height: 100%;
-
-  .hug-left-horizontal {
-    position: fixed;
-    left: 0;
-    top: 50%;
-  }
-  
-  .hug-right-horizontal {
-    position: fixed;
-    right: 0;
-    top: 50%;
-  }
-}
-
-.next-btn {
-  font-size: 40px;
-  &:hover {
-    color: colours.$blue;
-    cursor: pointer;
-  }
 }
 
 .image-comparer-container {
@@ -40,13 +20,6 @@
   padding-bottom: 10px;
 }
 
-.view-selection {
-  background-color: colours.$grey;
-  .dropdown-toggle {
-    font-size: 1.1rem;
-  }
-}
-
 .vertical-split-line {
   position: absolute;
   top: 0;
@@ -55,6 +28,49 @@
   width: 3px;
   padding: 0;
   background-color: colours.$grey;
+}
+
+.hidden-md {
+  display: none;
+}
+@include media-breakpoint-up(md) {
+  .hidden-md {
+    display: block;
+  }
+}
+
+.pop-up {
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  background-color: colours.$grey;
+  color: colours.$dark-grey;
+  &.green {
+    background-color: rgba(165, 255, 151, 0.84);
+    color: #0F6F00;
+  }
+  &.red {
+    background-color: rgba(244, 176, 176, 0.84);
+    color: #A80000;
+  }
+}
+
+/*********************************************
+ * UTILS
+ *********************************************/
+.pos-fixed {
+  position: fixed;
+  &.left {
+    left: 0;
+  }
+  &.center {
+    top: 50%;
+  }
+  &.bottom {
+    bottom: 0;
+  }
+  &.right {
+    right: 0;
+  }
 }
 
 .align-content-center {
@@ -68,6 +84,9 @@
   margin: auto;
 }
 
+/*********************************************
+ * CONTROL ELEMENTS
+ *********************************************/
 .control-bar {
   position: fixed;
   bottom: 0;
@@ -81,18 +100,28 @@
     padding-top: 5px;
     padding-bottom: 5px;
   }
+}
 
-  .container {
-    .row > div{
-      @extend .align-content-center;
-      @include media-breakpoint-down(xl) {
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-    }
-    @include media-breakpoint-up(md) {
-      max-width: 1600px;
-    }
+.download-control {
+  font-size: 24px;
+  color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 8px 13px 18px 13px;
+  margin: 0 10px 10px 0;
+  background-color: colours.$dark-grey;
+  &:hover {
+    background-color: colours.$grey;
+    cursor: pointer;
+  }
+}
+
+.next-btn {
+  font-size: 40px;
+  &:hover {
+    color: colours.$blue;
+    cursor: pointer;
   }
 }
 
@@ -121,64 +150,9 @@
   }
 }
 
-.file-size-display {
-  font-size: 1.1rem;
-  padding: 5px 0 10px 0;
-  justify-content: center;
-  text-align: center;
-}
-
-.hidden-md {
-  display: none;
-}
-@include media-breakpoint-up(md) {
-  .hidden-md {
-    display: block;
-  }
-}
-
-.pop-up {
-  border-radius: 10px;
-  padding: 10px 20px 10px 20px;
+.view-selection {
   background-color: colours.$grey;
-  color: colours.$dark-grey;
-  &.green {
-    background-color: rgba(165, 255, 151, 0.84);
-    color: #0F6F00;
-  }
-  &.red {
-    background-color: rgba(244, 176, 176, 0.84);
-    color: #A80000;
-  }
-}
-
-.pos-fixed {
-  position: fixed;
-  &.left {
-    left: 0;
-  }
-  &.center {
-    top: 50%;
-  }
-  &.bottom {
-    bottom: 0;
-  }
-  &.right {
-    right: 0;
-  }
-}
-
-.download-control {
-  font-size: 24px;
-  color: white;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  padding: 8px 13px 18px 13px;
-  margin: 0 10px 10px 0;
-  background-color: colours.$dark-grey;
-  &:hover {
-    background-color: colours.$grey;
-    cursor: pointer;
+  .dropdown-toggle {
+    font-size: 1.1rem;
   }
 }
