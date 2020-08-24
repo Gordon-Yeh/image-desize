@@ -89,6 +89,7 @@ export class ImageComparerComponent implements OnInit {
     this.imgId = this.imgService.getNextImg(this.imgId, orderReversed);
     this.imageInfo = this.imgService.getImg(this.imgId);
     this.outputNameField = `${this.imageInfo.original.f.name.split('.')[0]}-compressed`;
+    this.quality = this.imageInfo.quality;
     this.drawView();
   }
 

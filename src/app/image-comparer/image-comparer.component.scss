@@ -6,15 +6,16 @@
 .edit-container {
   position: relative;
   background-color: colours.$light-grey;
+  height: 100%;
 
   .hug-left-horizontal {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 50%;
   }
   
   .hug-right-horizontal {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 50%;
   }
@@ -30,7 +31,7 @@
 
 .image-comparer-container {
   position: relative;
-  min-height: 80vh;
+  min-height: 100%;
   // will align content in the center
   display: flex;
   justify-content: center;
@@ -67,22 +68,56 @@
   margin: auto;
 }
 
-.quality-selector {
-  padding: 20px 0 20px 0;
-  text-align: center;
-  & .form-range {
-    width: 500px;
-    margin: 0 10px 0 10px;
+.control-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  .control-bar-row {
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
-  @include media-breakpoint-down(md) {
-    & .form-range {
+
+  .container {
+    .row > div{
+      @extend .align-content-center;
+      @include media-breakpoint-down(xl) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      max-width: 1600px;
+    }
+  }
+}
+
+.quality-selector {
+  @extend .align-content-center;
+  text-align: center;
+  background-color: white;
+  .form-range {
+    width: 200px;
+    margin: 0 5px 0 10px;
+    @include media-breakpoint-up(lg) {
+      width: 600px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      width: 400px;
+    }
+
+    @include media-breakpoint-down(sm) {
       width: 200px;
     }
   }
-  .numeric-display {
-    padding: 8px 5px 8px 5px;
-    text-align: center;
-    border: 1px solid colours.$grey;
+  .form-control {
+    max-width: 4.5em;
+    min-width: 4.5em;
   }
 }
 
@@ -99,5 +134,51 @@
 @include media-breakpoint-up(md) {
   .hidden-md {
     display: block;
+  }
+}
+
+.pop-up {
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  background-color: colours.$grey;
+  color: colours.$dark-grey;
+  &.green {
+    background-color: rgba(165, 255, 151, 0.84);
+    color: #0F6F00;
+  }
+  &.red {
+    background-color: rgba(244, 176, 176, 0.84);
+    color: #A80000;
+  }
+}
+
+.pos-fixed {
+  position: fixed;
+  &.left {
+    left: 0;
+  }
+  &.center {
+    top: 50%;
+  }
+  &.bottom {
+    bottom: 0;
+  }
+  &.right {
+    right: 0;
+  }
+}
+
+.download-control {
+  font-size: 24px;
+  color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 8px 13px 18px 13px;
+  margin: 0 10px 10px 0;
+  background-color: colours.$dark-grey;
+  &:hover {
+    background-color: colours.$grey;
+    cursor: pointer;
   }
 }
