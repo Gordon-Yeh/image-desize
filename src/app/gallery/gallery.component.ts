@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import FileWithURL from '../models/FileWithURL';
 import { ImageCompressionService } from '../services/image-compression.service';
 import Selection from '../libs/selection';
+import * as JSZip from 'jszip';
+import { download } from '../helpers/files';
 
 const DOUBLECLICK_THRESHHOLD = 200;
 
@@ -67,6 +69,50 @@ export class GalleryComponent implements OnInit {
     }
   }
 
+  handleDownload(imgIds: number[]) {
+    let zip = new JSZip();
+    imgIds
+      .forEach(id => {
+        let img = this.imgService.getImg(id);
+        zip.file(img.original.f.name, img.compressed.f);
+      });
+    zip.generateAsync({type:"blob"})
+      .then((content) => {
+        download(content, 'desized.zip');
+      });
+  }
+
+  get selectedImgs() : number[] {
+    return Object.keys(this.selected).map(id => Number(id));
+  }
+
+  get allImgs() : number[] {
+    return this.imgService.getImgIds();
+  }
+
+  aggrigateFileSize(ids : number[], version : 'original' | 'compressed') {
+    return ids.map(id => this.imgService.getImg(id)[version].f.size).reduce((accu, s) => {
+      return accu + s;
+    }, 0);
+  };
+
+
+  get inputSize() : number {
+    return this.selectedImgs
+      .map((id) => this.imgService.getImg(id).original.f.size)
+      .reduce((accu, s) => {
+        return accu + s;
+      }, 0);
+  }
+
+  get ouputSize() : number {
+    return this.selectedImgs
+      .map((id) => this.imgService.getImg(id).compressed.f.size)
+      .reduce((accu, s) => {
+        return accu + s;
+      }, 0);
+  }
+
   ngOnInit(): void {
     console.log('gallery.component OnInit');
     let selection = Selection({
@@ -77,12 +123,7 @@ export class GalleryComponent implements OnInit {
     }).on('start', ({inst, selected, oe}) => {
       // Remove class if the user isn't pressing the control key or ⌘ key
       if (!oe.ctrlKey && !oe.metaKey) {
-        // Unselect all elements
-        for (const el of selected) {
-          let imgId: number = +el.getAttribute('data-id');
-          this.selected[imgId] = false;
-        }
-
+        this.selected = {};
         // Clear previous selection
         inst.clearSelection();
       }
@@ -97,7 +138,7 @@ export class GalleryComponent implements OnInit {
       // since the last selection
       for (const el of removed) {
         let imgId: number = +el.getAttribute('data-id');
-        this.selected[imgId] = false;
+        delete this.selected[imgId];
       }
     }).on('stop', ({inst}) => {
       // Remember selection in case the user wants to add smth in the next one

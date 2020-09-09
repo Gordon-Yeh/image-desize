@@ -1,0 +1,22 @@
+.pos-fixed {
+  position: fixed;
+  &.left {
+    left: 0;
+  }
+  &.center {
+    top: 50%;
+  }
+  &.bottom {
+    bottom: 0;
+  }
+  &.right {
+    right: 0;
+  }
+}
+
+.align-content-center {
+  // will align content in the center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

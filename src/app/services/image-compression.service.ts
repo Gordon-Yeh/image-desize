@@ -31,8 +31,16 @@ export class ImageCompressionService {
     }
   }
 
+  getImgIds(): number[] {
+    return Object.keys(this.images).map(k => Number(k));
+  }
+
   getImgs(): { [key: number]: ImgInfo; } {
     return this.images;
+  }
+
+  getImgCount(): number {
+    return this.idCounter;
   }
 
   getImg(id: number): ImgInfo {

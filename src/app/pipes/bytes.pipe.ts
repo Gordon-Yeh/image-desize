@@ -12,7 +12,8 @@ var denom = {
   name: 'bytes'
 })
 export class BytesPipe implements PipeTransform {
-  transform(value: number, unit: FileSizeUnit): unknown {
-    return `${value / denom[unit]} ${unit}`;
+  transform(value: number, unit: FileSizeUnit, numDecimals=2): unknown {
+    let sizeInUnit = value / denom[unit];
+    return `${sizeInUnit.toFixed(numDecimals)} ${unit}`;
   }
 }

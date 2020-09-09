@@ -1,5 +1,5 @@
 export default class FileWithURL {
-  #f: File | Blob;
+  #f: File;
   #url: string;
 
   constructor(f: File) {

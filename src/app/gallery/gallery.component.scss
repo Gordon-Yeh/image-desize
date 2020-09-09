@@ -1,3 +1,6 @@
+@use "../scss/utils";
+@use "../colours";
+
 .gallery-container {
   padding: 10px 20px 10px 20px;
 }
@@ -36,5 +39,22 @@ $highlight: #D7E7FF;
     padding: 6px 10px 6px 10px;
     font-size: 14px;
     text-align: end;
+  }
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: right;
+
+  background-color: colours.$light-grey;
+
+  padding: 10px 50px 10px 50px;
+
+  .item {
+    margin: 0 10px 0 10px;
   }
 }
