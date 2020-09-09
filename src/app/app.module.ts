@@ -9,6 +9,7 @@ import { PercentWithSignPipe } from './pipes/percent-with-sign.pipe';
 import { BytesPipe } from './pipes/bytes.pipe';
 import { GalleryComponent } from './gallery/gallery.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SafePipe } from './pipes/safe.pipe';
     PercentWithSignPipe,
     BytesPipe,
     GalleryComponent,
-    SafePipe
+    SafePipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
