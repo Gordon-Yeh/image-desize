@@ -23,6 +23,52 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/about/about.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/about/about.component.ts ***!
+  \******************************************/
+/*! exports provided: AboutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class AboutComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+AboutComponent.ɵfac = function AboutComponent_Factory(t) { return new (t || AboutComponent)(); };
+AboutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AboutComponent, selectors: [["app-about"]], decls: 8, vars: 0, consts: [[1, "about"], [1, "container"], [1, "align-content-center", "mb-5"], ["src", "../../assets/about-logo.svg", "width", "250", "height", "250"]], template: function AboutComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "img", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Desize is a simple application used to shrink the size of your jpeg files. It\u2019s great for web developers looking to improve website performance by optimizing their images, or for photographers looking to better manage the size of their image archive. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " All the compression is done locally with JavaScript, so no user data is sent over the internet for better data usage and security. Desize is designed with productive workflow in mind, so you can customize the compression for different images in your library at the same time. You can either apply a quality setting to all images at once to get results quickly, or you can go into each image individually and customize the compression to your liking with the Before and After feature. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: [".pos-fixed[_ngcontent-%COMP%] {\n  position: fixed;\n}\n.pos-fixed.left[_ngcontent-%COMP%] {\n  left: 0;\n}\n.pos-fixed.center[_ngcontent-%COMP%] {\n  top: 50%;\n}\n.pos-fixed.bottom[_ngcontent-%COMP%] {\n  bottom: 0;\n}\n.pos-fixed.right[_ngcontent-%COMP%] {\n  right: 0;\n}\n.align-content-center[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.about[_ngcontent-%COMP%] {\n  text-align: center;\n  line-height: 1.6;\n  padding: 100px 0px 50px 0px;\n  font-size: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2Nzcy9fdXRpbHMuc2NzcyIsInNyYy9hcHAvYWJvdXQvYWJvdXQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFBO0FDQ0Y7QURBRTtFQUNFLE9BQUE7QUNFSjtBREFFO0VBQ0UsUUFBQTtBQ0VKO0FEQUU7RUFDRSxTQUFBO0FDRUo7QURBRTtFQUNFLFFBQUE7QUNFSjtBREVBO0VBRUUsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7QUNBRjtBQWxCQTtFQUNFLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSwyQkFBQTtFQUNBLGVBQUE7QUFxQkYiLCJmaWxlIjoic3JjL2FwcC9hYm91dC9hYm91dC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wb3MtZml4ZWQge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gICYubGVmdCB7XG4gICAgbGVmdDogMDtcbiAgfVxuICAmLmNlbnRlciB7XG4gICAgdG9wOiA1MCU7XG4gIH1cbiAgJi5ib3R0b20ge1xuICAgIGJvdHRvbTogMDtcbiAgfVxuICAmLnJpZ2h0IHtcbiAgICByaWdodDogMDtcbiAgfVxufVxuXG4uYWxpZ24tY29udGVudC1jZW50ZXIge1xuICAvLyB3aWxsIGFsaWduIGNvbnRlbnQgaW4gdGhlIGNlbnRlclxuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn0iLCJAdXNlIFwiLi4vc2Nzcy91dGlsc1wiO1xuXG4uYWJvdXQge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGxpbmUtaGVpZ2h0OiAxLjY7XG4gIHBhZGRpbmc6IDEwMHB4IDBweCA1MHB4IDBweDtcbiAgZm9udC1zaXplOiAyMHB4O1xufSJdfQ== */"] });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AboutComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+                selector: 'app-about',
+                templateUrl: './about.component.html',
+                styleUrls: ['./about.component.scss']
+            }]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -37,6 +83,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
 /* harmony import */ var _image_comparer_image_comparer_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./image-comparer/image-comparer.component */ "./src/app/image-comparer/image-comparer.component.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+
 
 
 
@@ -44,6 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
+    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
     { path: 'edit/:id', component: _image_comparer_image_comparer_component__WEBPACK_IMPORTED_MODULE_3__["ImageComparerComponent"] },
     { path: 'gallery', component: _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_2__["GalleryComponent"] },
     { path: '', redirectTo: '/gallery', pathMatch: 'full' }
@@ -85,19 +134,34 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 5, vars: 1, consts: [[1, "navbar", "navbar-dark", "bg-dark"], [1, "container-fluid"], [1, "navbar-brand", 3, "routerLink"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 13, vars: 2, consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-dark"], [1, "container-fluid"], [1, "navbar-brand", 3, "routerLink"], ["src", "../assets/desize-logo.svg", "width", "40", "height", "40"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarNavAltMarkup", "aria-controls", "navbarNavAltMarkup", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "ml-auto"], [1, "nav-link", "mr-2", 3, "routerLink"], ["href", "https://github.com/Gordon-Yeh/image-desize", 1, "nav-link", "mr-2"], [1, "fab", "fa-github"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Desize");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "img", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "span", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "a", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "About");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "a", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "router-outlet");
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", "/");
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", "/about");
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterOutlet"]], styles: [".nav-link[_ngcontent-%COMP%] {\n  font-size: 20px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsMEJBQUE7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXYtbGluayB7XG4gIGZvbnQtc2l6ZTogMjBweCAhaW1wb3J0YW50O1xufSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -130,6 +194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pipes/bytes.pipe */ "./src/app/pipes/bytes.pipe.ts");
 /* harmony import */ var _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./gallery/gallery.component */ "./src/app/gallery/gallery.component.ts");
 /* harmony import */ var _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pipes/safe.pipe */ "./src/app/pipes/safe.pipe.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+
 
 
 
@@ -155,7 +221,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _pipes_percent_with_sign_pipe__WEBPACK_IMPORTED_MODULE_6__["PercentWithSignPipe"],
         _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_7__["BytesPipe"],
         _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_8__["GalleryComponent"],
-        _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"],
+        _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]] }); })();
@@ -168,7 +235,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _pipes_percent_with_sign_pipe__WEBPACK_IMPORTED_MODULE_6__["PercentWithSignPipe"],
                     _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_7__["BytesPipe"],
                     _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_8__["GalleryComponent"],
-                    _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]
+                    _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"],
+                    _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"]
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -196,11 +264,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GalleryComponent", function() { return GalleryComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _libs_selection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../libs/selection */ "./src/app/libs/selection.js");
-/* harmony import */ var _services_image_compression_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/image-compression.service */ "./src/app/services/image-compression.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pipes/bytes.pipe */ "./src/app/pipes/bytes.pipe.ts");
+/* harmony import */ var jszip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jszip */ "./node_modules/jszip/dist/jszip.min.js");
+/* harmony import */ var jszip__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jszip__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers_files__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/files */ "./src/app/helpers/files.ts");
+/* harmony import */ var _services_image_compression_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/image-compression.service */ "./src/app/services/image-compression.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pipes/bytes.pipe */ "./src/app/pipes/bytes.pipe.ts");
+
+
 
 
 
@@ -210,11 +283,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function GalleryComponent_div_9_Template(rf, ctx) { if (rf & 1) {
-    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_div_9_Template_div_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const item_r2 = ctx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.handleImgFrameClick(item_r2.key); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 9);
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_div_9_Template_div_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10); const item_r8 = ctx.$implicit; const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.handleImgFrameClick(item_r8.key); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 12);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "b");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Quality");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -231,15 +304,93 @@ function GalleryComponent_div_9_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const item_r2 = ctx.$implicit;
+    const item_r8 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background-image", "url(" + item_r2.value.original.url + ")");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("selected", ctx_r1.selected[item_r2.key]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-id", item_r2.key);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("background-image", "url(" + item_r8.value.original.url + ")");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("selected", ctx_r1.selected[item_r8.key]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-id", item_r8.key);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](": ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](6, 7, item_r2.value.quality / 100), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](": ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](6, 7, item_r8.value.quality / 100), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](": ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](11, 9, item_r2.value.compressed.f.size, "MB"), "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](": ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](11, 9, item_r8.value.compressed.f.size), "");
+} }
+function GalleryComponent_span_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Original Size:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "bytes");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 1, ctx_r2.aggrigateFileSize(ctx_r2.selectedImgs, "original")), "");
+} }
+function GalleryComponent_span_15_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Compressed Size:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "bytes");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 1, ctx_r3.aggrigateFileSize(ctx_r3.selectedImgs, "compressed")), "");
+} }
+function GalleryComponent_span_16_Template(rf, ctx) { if (rf & 1) {
+    const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_span_16_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12); const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r11.handleDownload(ctx_r11.selectedImgs); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Download (", ctx_r4.selectedImgs.length, ")");
+} }
+function GalleryComponent_span_17_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Original Size:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "bytes");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 1, ctx_r5.aggrigateFileSize(ctx_r5.allImgs, "original")), "");
+} }
+function GalleryComponent_span_18_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Compressed Size:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](4, "bytes");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](4, 1, ctx_r6.aggrigateFileSize(ctx_r6.allImgs, "compressed")), "");
+} }
+function GalleryComponent_span_19_Template(rf, ctx) { if (rf & 1) {
+    const _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_span_19_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r14); const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r13.handleDownload(ctx_r13.allImgs); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Download All");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r7.imgService.idCounter < 1);
 } }
 const DOUBLECLICK_THRESHHOLD = 200;
 class GalleryComponent {
@@ -286,9 +437,35 @@ class GalleryComponent {
         if (input.files.length < 1)
             return;
         for (let i = 0; i < input.files.length; i++) {
-            this.imgService.addImg(input.files[i]);
+            let file = input.files[i];
+            if (file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'image/tiff')
+                this.imgService.addImg(input.files[i]);
         }
     }
+    handleDownload(imgIds) {
+        let zip = new jszip__WEBPACK_IMPORTED_MODULE_2__();
+        imgIds
+            .forEach(id => {
+            let img = this.imgService.getImg(id);
+            zip.file(img.original.f.name, img.compressed.f);
+        });
+        zip.generateAsync({ type: "blob" })
+            .then((content) => {
+            Object(_helpers_files__WEBPACK_IMPORTED_MODULE_3__["download"])(content, 'desized.zip');
+        });
+    }
+    get selectedImgs() {
+        return Object.keys(this.selected).map(id => Number(id));
+    }
+    get allImgs() {
+        return this.imgService.getImgIds();
+    }
+    aggrigateFileSize(ids, version) {
+        return ids.map(id => this.imgService.getImg(id)[version].f.size).reduce((accu, s) => {
+            return accu + s;
+        }, 0);
+    }
+    ;
     ngOnInit() {
         console.log('gallery.component OnInit');
         let selection = Object(_libs_selection__WEBPACK_IMPORTED_MODULE_1__["default"])({
@@ -299,11 +476,7 @@ class GalleryComponent {
         }).on('start', ({ inst, selected, oe }) => {
             // Remove class if the user isn't pressing the control key or ⌘ key
             if (!oe.ctrlKey && !oe.metaKey) {
-                // Unselect all elements
-                for (const el of selected) {
-                    let imgId = +el.getAttribute('data-id');
-                    this.selected[imgId] = false;
-                }
+                this.selected = {};
                 // Clear previous selection
                 inst.clearSelection();
             }
@@ -317,7 +490,7 @@ class GalleryComponent {
             // since the last selection
             for (const el of removed) {
                 let imgId = +el.getAttribute('data-id');
-                this.selected[imgId] = false;
+                delete this.selected[imgId];
             }
         }).on('stop', ({ inst }) => {
             // Remember selection in case the user wants to add smth in the next one
@@ -325,8 +498,8 @@ class GalleryComponent {
         });
     }
 }
-GalleryComponent.ɵfac = function GalleryComponent_Factory(t) { return new (t || GalleryComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_image_compression_service__WEBPACK_IMPORTED_MODULE_2__["ImageCompressionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
-GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GalleryComponent, selectors: [["app-gallery"]], decls: 11, vars: 4, consts: [[1, "gallery-container", 3, "click"], ["id", "fileselector", "type", "file", "multiple", "", 3, "input"], ["fileselector", ""], ["type", "number", "min", "0", "max", "100", "id", "quality", 3, "ngModel", "ngModelChange"], ["type", "button", 1, "btn", "btn-dark", "ml-3", 3, "click"], [1, "img-container"], ["class", "img-frame", 3, "selected", "background-image", "click", 4, "ngFor", "ngForOf"], [1, "img-frame", 3, "click"], [1, "attribute-label"], [1, "mr-3"]], template: function GalleryComponent_Template(rf, ctx) { if (rf & 1) {
+GalleryComponent.ɵfac = function GalleryComponent_Factory(t) { return new (t || GalleryComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_image_compression_service__WEBPACK_IMPORTED_MODULE_4__["ImageCompressionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };
+GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: GalleryComponent, selectors: [["app-gallery"]], decls: 20, vars: 11, consts: [[1, "gallery-container", 3, "click"], ["id", "fileselector", "type", "file", "multiple", "", 3, "input"], ["fileselector", ""], ["type", "number", "min", "0", "max", "100", "id", "quality", 3, "ngModel", "ngModelChange"], ["type", "button", 1, "btn", "btn-dark", "ml-3", 3, "click"], [1, "img-container"], ["class", "img-frame", 3, "selected", "background-image", "click", 4, "ngFor", "ngForOf"], [1, "bottom-bar"], [1, "item"], ["class", "item", 4, "ngIf"], [1, "img-frame", 3, "click"], [1, "attribute-label"], [1, "mr-3"], ["type", "button", 1, "btn", "btn-primary", 3, "click"], ["type", "button", 1, "btn", "btn-primary", 3, "disabled", "click"]], template: function GalleryComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function GalleryComponent_Template_div_click_0_listener() { return ctx.clickTest(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "input", 1, 2);
@@ -343,16 +516,41 @@ GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Apply");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, GalleryComponent_div_9_Template, 12, 12, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, GalleryComponent_div_9_Template, 12, 11, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](10, "keyvalue");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "span", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, GalleryComponent_span_14_Template, 5, 3, "span", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, GalleryComponent_span_15_Template, 5, 3, "span", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, GalleryComponent_span_16_Template, 3, 1, "span", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, GalleryComponent_span_17_Template, 5, 3, "span", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, GalleryComponent_span_18_Template, 5, 3, "span", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, GalleryComponent_span_19_Template, 3, 1, "span", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.quality);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 2, ctx.imgService.getImgs()));
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["KeyValuePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["PercentPipe"], _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_6__["BytesPipe"]], styles: [".gallery-container[_ngcontent-%COMP%] {\n  padding: 10px 20px 10px 20px;\n}\n\n.img-container[_ngcontent-%COMP%] {\n  height: 100vh;\n  width: 100%;\n}\n\n.img-frame[_ngcontent-%COMP%] {\n  display: inline-block;\n  position: relative;\n  margin: 10px 10px 0px 10px;\n  width: 375px;\n  height: 300px;\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid #C4C4C4;\n}\n\n.img-frame.selected[_ngcontent-%COMP%] {\n  border: 1px solid #5296FC;\n}\n\n.img-frame.selected[_ngcontent-%COMP%]   .attribute-label[_ngcontent-%COMP%] {\n  background-color: #D7E7FF;\n}\n\n.img-frame[_ngcontent-%COMP%]   .attribute-label[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  background-color: white;\n  width: 100%;\n  padding: 6px 10px 6px 10px;\n  font-size: 14px;\n  text-align: end;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsNEJBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBSUE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsMEJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0VBQ0Esc0JBQUE7RUFDQSw0QkFBQTtFQUNBLHlCQUFBO0FBREY7O0FBR0U7RUFDRSx5QkFBQTtBQURKOztBQUdJO0VBQ0UseUJBakJNO0FBZ0JaOztBQUtFO0VBQ0Usa0JBQUE7RUFDQSxTQUFBO0VBQ0EsdUJBQUE7RUFDQSxXQUFBO0VBQ0EsMEJBQUE7RUFDQSxlQUFBO0VBQ0EsZUFBQTtBQUhKIiwiZmlsZSI6InNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdhbGxlcnktY29udGFpbmVyIHtcbiAgcGFkZGluZzogMTBweCAyMHB4IDEwcHggMjBweDtcbn1cblxuLmltZy1jb250YWluZXIge1xuICBoZWlnaHQ6IDEwMHZoO1xuICB3aWR0aDogMTAwJTtcbn1cblxuJGhpZ2hsaWdodDogI0Q3RTdGRjtcblxuLmltZy1mcmFtZSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXJnaW46IDEwcHggMTBweCAwcHggMTBweDtcbiAgd2lkdGg6IDM3NXB4O1xuICBoZWlnaHQ6IDMwMHB4O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNDNEM0QzQ7XG5cbiAgJi5zZWxlY3RlZCB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgIzUyOTZGQztcblxuICAgIC5hdHRyaWJ1dGUtbGFiZWwge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGhpZ2hsaWdodDtcbiAgICB9XG4gIH1cblxuICAuYXR0cmlidXRlLWxhYmVsIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYm90dG9tOiAwO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBhZGRpbmc6IDZweCAxMHB4IDZweCAxMHB4O1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICB0ZXh0LWFsaWduOiBlbmQ7XG4gIH1cbn1cbiJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 9, ctx.imgService.getImgs()));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.selectedImgs.length, " selected");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length > 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length > 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length > 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length <= 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length <= 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.selectedImgs.length <= 0);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["NgIf"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_7__["KeyValuePipe"], _angular_common__WEBPACK_IMPORTED_MODULE_7__["PercentPipe"], _pipes_bytes_pipe__WEBPACK_IMPORTED_MODULE_8__["BytesPipe"]], styles: [".pos-fixed[_ngcontent-%COMP%] {\n  position: fixed;\n}\n.pos-fixed.left[_ngcontent-%COMP%] {\n  left: 0;\n}\n.pos-fixed.center[_ngcontent-%COMP%] {\n  top: 50%;\n}\n.pos-fixed.bottom[_ngcontent-%COMP%] {\n  bottom: 0;\n}\n.pos-fixed.right[_ngcontent-%COMP%] {\n  right: 0;\n}\n.align-content-center[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.gallery-container[_ngcontent-%COMP%] {\n  padding: 10px 20px 10px 20px;\n}\n.img-container[_ngcontent-%COMP%] {\n  height: 100vh;\n  width: 100%;\n}\n.img-frame[_ngcontent-%COMP%] {\n  display: inline-block;\n  position: relative;\n  margin: 10px 10px 0px 10px;\n  width: 375px;\n  height: 300px;\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  border: 1px solid #C4C4C4;\n}\n.img-frame.selected[_ngcontent-%COMP%] {\n  border: 1px solid #5296FC;\n}\n.img-frame.selected[_ngcontent-%COMP%]   .attribute-label[_ngcontent-%COMP%] {\n  background-color: #D7E7FF;\n}\n.img-frame[_ngcontent-%COMP%]   .attribute-label[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  background-color: white;\n  width: 100%;\n  padding: 6px 10px 6px 10px;\n  font-size: 14px;\n  text-align: end;\n}\n.bottom-bar[_ngcontent-%COMP%] {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  text-align: right;\n  background-color: #ECECEC;\n  padding: 10px 50px 10px 50px;\n}\n.bottom-bar[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%] {\n  margin: 0 10px 0 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2Nzcy9fdXRpbHMuc2NzcyIsInNyYy9hcHAvZ2FsbGVyeS9nYWxsZXJ5LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9fY29sb3Vycy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtBQ0NGO0FEQUU7RUFDRSxPQUFBO0FDRUo7QURBRTtFQUNFLFFBQUE7QUNFSjtBREFFO0VBQ0UsU0FBQTtBQ0VKO0FEQUU7RUFDRSxRQUFBO0FDRUo7QURFQTtFQUVFLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FDQUY7QUFqQkE7RUFDRSw0QkFBQTtBQW9CRjtBQWpCQTtFQUNFLGFBQUE7RUFDQSxXQUFBO0FBb0JGO0FBZkE7RUFDRSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsMEJBQUE7RUFDQSxZQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0VBQ0Esc0JBQUE7RUFDQSw0QkFBQTtFQUNBLHlCQUFBO0FBa0JGO0FBaEJFO0VBQ0UseUJBQUE7QUFrQko7QUFoQkk7RUFDRSx5QkFqQk07QUFtQ1o7QUFkRTtFQUNFLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLHVCQUFBO0VBQ0EsV0FBQTtFQUNBLDBCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7QUFnQko7QUFaQTtFQUNFLGVBQUE7RUFDQSxTQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxXQUFBO0VBQ0EsaUJBQUE7RUFFQSx5QkNsRFc7RURvRFgsNEJBQUE7QUFhRjtBQVhFO0VBQ0UscUJBQUE7QUFhSiIsImZpbGUiOiJzcmMvYXBwL2dhbGxlcnkvZ2FsbGVyeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wb3MtZml4ZWQge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gICYubGVmdCB7XG4gICAgbGVmdDogMDtcbiAgfVxuICAmLmNlbnRlciB7XG4gICAgdG9wOiA1MCU7XG4gIH1cbiAgJi5ib3R0b20ge1xuICAgIGJvdHRvbTogMDtcbiAgfVxuICAmLnJpZ2h0IHtcbiAgICByaWdodDogMDtcbiAgfVxufVxuXG4uYWxpZ24tY29udGVudC1jZW50ZXIge1xuICAvLyB3aWxsIGFsaWduIGNvbnRlbnQgaW4gdGhlIGNlbnRlclxuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn0iLCJAdXNlIFwiLi4vc2Nzcy91dGlsc1wiO1xuQHVzZSBcIi4uL2NvbG91cnNcIjtcblxuLmdhbGxlcnktY29udGFpbmVyIHtcbiAgcGFkZGluZzogMTBweCAyMHB4IDEwcHggMjBweDtcbn1cblxuLmltZy1jb250YWluZXIge1xuICBoZWlnaHQ6IDEwMHZoO1xuICB3aWR0aDogMTAwJTtcbn1cblxuJGhpZ2hsaWdodDogI0Q3RTdGRjtcblxuLmltZy1mcmFtZSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBtYXJnaW46IDEwcHggMTBweCAwcHggMTBweDtcbiAgd2lkdGg6IDM3NXB4O1xuICBoZWlnaHQ6IDMwMHB4O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNDNEM0QzQ7XG5cbiAgJi5zZWxlY3RlZCB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgIzUyOTZGQztcblxuICAgIC5hdHRyaWJ1dGUtbGFiZWwge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogJGhpZ2hsaWdodDtcbiAgICB9XG4gIH1cblxuICAuYXR0cmlidXRlLWxhYmVsIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYm90dG9tOiAwO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBhZGRpbmc6IDZweCAxMHB4IDZweCAxMHB4O1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICB0ZXh0LWFsaWduOiBlbmQ7XG4gIH1cbn1cblxuLmJvdHRvbS1iYXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICB0ZXh0LWFsaWduOiByaWdodDtcblxuICBiYWNrZ3JvdW5kLWNvbG9yOiBjb2xvdXJzLiRsaWdodC1ncmV5O1xuXG4gIHBhZGRpbmc6IDEwcHggNTBweCAxMHB4IDUwcHg7XG5cbiAgLml0ZW0ge1xuICAgIG1hcmdpbjogMCAxMHB4IDAgMTBweDtcbiAgfVxufSIsIlxuJGdyZXk6ICNDNEM0QzQ7XG4kbGlnaHQtZ3JleTogI0VDRUNFQztcbiRkYXJrLWdyZXk6ICM1MDUwNTA7XG5cbiRsaWdodC1ibHVlOiAjRDdFN0ZGO1xuJGJsdWU6ICM1Mjk2RkM7Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GalleryComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -360,7 +558,7 @@ GalleryComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
                 templateUrl: './gallery.component.html',
                 styleUrls: ['./gallery.component.scss']
             }]
-    }], function () { return [{ type: _services_image_compression_service__WEBPACK_IMPORTED_MODULE_2__["ImageCompressionService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }]; }, null); })();
+    }], function () { return [{ type: _services_image_compression_service__WEBPACK_IMPORTED_MODULE_4__["ImageCompressionService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }]; }, null); })();
 
 
 /***/ }),
@@ -415,6 +613,29 @@ function toJPEG(canvas, quality) {
             reject(new Error(`jpeg quality should be between 0 to 100, got ${quality}`));
         canvas.toBlob(resolve, 'image/jpeg', quality / 100);
     });
+}
+
+
+/***/ }),
+
+/***/ "./src/app/helpers/files.ts":
+/*!**********************************!*\
+  !*** ./src/app/helpers/files.ts ***!
+  \**********************************/
+/*! exports provided: download */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "download", function() { return download; });
+function download(content, outputName) {
+    var a = document.createElement('a');
+    a.download = outputName;
+    let url = URL.createObjectURL(content);
+    a.href = url;
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
 }
 
 
@@ -537,7 +758,7 @@ class ImageComparerComponent {
     }
 }
 ImageComparerComponent.ɵfac = function ImageComparerComponent_Factory(t) { return new (t || ImageComparerComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_image_compression_service__WEBPACK_IMPORTED_MODULE_3__["ImageCompressionService"])); };
-ImageComparerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageComparerComponent, selectors: [["image-comparer"]], decls: 47, vars: 23, consts: [[1, "edit-container"], [1, "view-selection", "dropdown"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-expanded", "false", 1, "btn", "btn-lg", "dropdown-toggle"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu"], [1, "dropdown-item", 3, "click"], [1, "image-comparer-container"], [1, "container"], [1, "container", 3, "hidden"], [1, "row", "gx-3", "justify-content-md-center"], [1, "col-md"], [1, "align-content-center"], ["id", "y-canvas"], [1, "row", "gx-5", "justify-content-md-center"], [1, "col-md-6", "col-lg-6"], ["id", "before"], ["id", "after"], [1, "vertical-split-line", "hidden-md"], ["id", "input-canvas", "hidden", ""], [1, "pos-fixed", "left", "center", "next-btn", "ml-2", 3, "hidden", "click"], [1, "fas", "fa-arrow-alt-circle-left"], [1, "pos-fixed", "right", "center", "next-btn", "mr-2", 3, "hidden", "click"], [1, "fas", "fa-arrow-alt-circle-right"], [1, "control-bar"], [1, "control-bar-row", "align-content-center"], [1, "pop-up"], [1, "control-bar-row", "quality-selector", "input-group"], ["type", "range", "min", "0", "max", "100", "id", "quality", 1, "form-range", 3, "ngModel", "ngModelChange", "change"], ["type", "number", "min", "0", "max", "100", "id", "quality", 1, "form-control", 3, "ngModel", "ngModelChange", "change"], [1, "input-group-text"], [1, "pos-fixed", "right", "bottom"], [1, "download-control", 3, "click"], [1, "fas", "fa-download"]], template: function ImageComparerComponent_Template(rf, ctx) { if (rf & 1) {
+ImageComparerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ImageComparerComponent, selectors: [["image-comparer"]], decls: 47, vars: 21, consts: [[1, "edit-container"], [1, "view-selection", "dropdown"], ["type", "button", "id", "dropdownMenuButton", "data-toggle", "dropdown", "aria-expanded", "false", 1, "btn", "btn-lg", "dropdown-toggle"], ["aria-labelledby", "dropdownMenuButton", 1, "dropdown-menu"], [1, "dropdown-item", 3, "click"], [1, "image-comparer-container"], [1, "container"], [1, "container", 3, "hidden"], [1, "row", "gx-3", "justify-content-md-center"], [1, "col-md"], [1, "align-content-center"], ["id", "y-canvas"], [1, "row", "gx-5", "justify-content-md-center"], [1, "col-md-6", "col-lg-6"], ["id", "before"], ["id", "after"], [1, "vertical-split-line", "hidden-md"], ["id", "input-canvas", "hidden", ""], [1, "pos-fixed", "left", "center", "next-btn", "ml-2", 3, "hidden", "click"], [1, "fas", "fa-arrow-alt-circle-left"], [1, "pos-fixed", "right", "center", "next-btn", "mr-2", 3, "hidden", "click"], [1, "fas", "fa-arrow-alt-circle-right"], [1, "control-bar"], [1, "control-bar-row", "align-content-center"], [1, "pop-up"], [1, "control-bar-row", "quality-selector", "input-group"], ["type", "range", "min", "0", "max", "100", "id", "quality", 1, "form-range", 3, "ngModel", "ngModelChange", "change"], ["type", "number", "min", "0", "max", "100", "id", "quality", 1, "form-control", 3, "ngModel", "ngModelChange", "change"], [1, "input-group-text"], [1, "pos-fixed", "right", "bottom"], [1, "download-control", 3, "click"], [1, "fas", "fa-download"]], template: function ImageComparerComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 2);
@@ -625,7 +846,7 @@ ImageComparerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](22, _c0)[ctx.viewMode], " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](20, _c0)[ctx.viewMode], " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", ctx.getCurrentViewModel() !== "y");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
@@ -637,7 +858,7 @@ ImageComparerComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵd
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("red", ctx.getFileDifference() > 0)("green", ctx.getFileDifference() < 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](36, 14, ctx.getCPFileSize(), "KB"), " / ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](37, 17, ctx.getOGFileSize(), "KB"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](38, 20, ctx.getFileDifference()), ") ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate3"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](36, 14, ctx.getCPFileSize()), " / ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](37, 16, ctx.getOGFileSize()), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](38, 18, ctx.getFileDifference()), ") ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.quality);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -1611,14 +1832,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var denom = {
-    'B': 1,
-    'KB': 1000,
+    'GB': 1000000000,
     'MB': 1000000,
-    'GB': 1000000000
+    'KB': 1000,
+    'B': 1
 };
 class BytesPipe {
-    transform(value, unit) {
-        return `${value / denom[unit]} ${unit}`;
+    transform(value, unit = null, numDecimals = 2) {
+        if (unit === null) {
+            if (value > 1) {
+                let maxUnit = 0;
+                for (const u in denom) {
+                    if (value > (denom[u] / 2) && denom[u] > maxUnit) {
+                        unit = u;
+                        maxUnit = denom[u];
+                    }
+                }
+            }
+            else {
+                unit = 'B';
+            }
+        }
+        let sizeInUnit = value / denom[unit];
+        return `${sizeInUnit.toFixed(numDecimals)} ${unit}`;
     }
 }
 BytesPipe.ɵfac = function BytesPipe_Factory(t) { return new (t || BytesPipe)(); };
@@ -1735,8 +1971,14 @@ class ImageCompressionService {
             'quality': 100
         };
     }
+    getImgIds() {
+        return Object.keys(this.images).map(k => Number(k));
+    }
     getImgs() {
         return this.images;
+    }
+    getImgCount() {
+        return this.idCounter;
     }
     getImg(id) {
         return this.images[id];
