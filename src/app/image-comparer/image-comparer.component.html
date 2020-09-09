@@ -75,7 +75,7 @@
       [class.red]="getFileDifference() > 0"
       [class.green]="getFileDifference() < 0"
     >
-      {{ getCPFileSize() | bytes:'KB' }} / {{ getOGFileSize() | bytes:'KB' }} ({{ getFileDifference() | percentWithSign }})
+      {{ getCPFileSize() | bytes }} / {{ getOGFileSize() | bytes }} ({{ getFileDifference() | percentWithSign }})
     </span>
   </div>
   <!-- JPEG QUALITY CONTROL -->

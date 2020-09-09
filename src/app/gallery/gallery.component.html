@@ -17,7 +17,7 @@
     >
       <div class="attribute-label">
         <span class="mr-3"><b>Quality</b>: {{ item.value.quality/100 | percent }}</span>
-        <span><b>Output Size</b>: {{ item.value.compressed.f.size | bytes:'MB' }}</span>
+        <span><b>Output Size</b>: {{ item.value.compressed.f.size | bytes }}</span>
       </div>
     </div>
   </div>
@@ -26,11 +26,11 @@
 <div class="bottom-bar">
   <span class="item"> {{ selectedImgs.length }} selected</span>
   <!-- DOWNLOAD SELECTED -->
-  <span class="item" *ngIf="selectedImgs.length > 0"><b>Original Size:</b> {{ aggrigateFileSize(selectedImgs, 'original') | bytes: 'MB'}}</span>
-  <span class="item" *ngIf="selectedImgs.length > 0"><b>Compressed Size:</b> {{ aggrigateFileSize(selectedImgs, 'compressed') | bytes: 'MB' }}</span>
+  <span class="item" *ngIf="selectedImgs.length > 0"><b>Original Size:</b> {{ aggrigateFileSize(selectedImgs, 'original') | bytes }}</span>
+  <span class="item" *ngIf="selectedImgs.length > 0"><b>Compressed Size:</b> {{ aggrigateFileSize(selectedImgs, 'compressed') | bytes }}</span>
   <span class="item" *ngIf="selectedImgs.length > 0"><button (click)="handleDownload(selectedImgs)" type="button" class="btn btn-primary">Download ({{selectedImgs.length}})</button></span>
   <!-- DOWNLOAD ALL -->
-  <span class="item" *ngIf="selectedImgs.length <= 0"><b>Original Size:</b> {{ aggrigateFileSize(allImgs, 'original') | bytes: 'MB'}}</span>
-  <span class="item" *ngIf="selectedImgs.length <= 0"><b>Compressed Size:</b> {{ aggrigateFileSize(allImgs, 'compressed') | bytes: 'MB' }}</span>
+  <span class="item" *ngIf="selectedImgs.length <= 0"><b>Original Size:</b> {{ aggrigateFileSize(allImgs, 'original') | bytes }}</span>
+  <span class="item" *ngIf="selectedImgs.length <= 0"><b>Compressed Size:</b> {{ aggrigateFileSize(allImgs, 'compressed') | bytes }}</span>
   <span class="item" *ngIf="selectedImgs.length <= 0"><button (click)="handleDownload(allImgs)" [disabled]="imgService.idCounter < 1" type="button" class="btn btn-primary">Download All</button></span>
 </div>
