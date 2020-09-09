@@ -65,7 +65,9 @@ export class GalleryComponent implements OnInit {
       return;
 
     for (let i = 0; i < input.files.length; i++) {
-      this.imgService.addImg(input.files[i]);
+      let file = input.files[i];
+      if (file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'image/tiff')
+        this.imgService.addImg(input.files[i]);
     }
   }
 
@@ -95,23 +97,6 @@ export class GalleryComponent implements OnInit {
       return accu + s;
     }, 0);
   };
-
-
-  get inputSize() : number {
-    return this.selectedImgs
-      .map((id) => this.imgService.getImg(id).original.f.size)
-      .reduce((accu, s) => {
-        return accu + s;
-      }, 0);
-  }
-
-  get ouputSize() : number {
-    return this.selectedImgs
-      .map((id) => this.imgService.getImg(id).compressed.f.size)
-      .reduce((accu, s) => {
-        return accu + s;
-      }, 0);
-  }
 
   ngOnInit(): void {
     console.log('gallery.component OnInit');
