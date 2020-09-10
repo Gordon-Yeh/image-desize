@@ -1,27 +1,10 @@
 # Desize
+Desize is a simple application used to shrink the size of your jpeg files.   
+It’s great for web developers looking to improve website performance by optimizing their images, or for photographers looking to better manage the size of their image archive.  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+All the compression is done locally with JavaScript, so no user data is sent over the internet for better data usage and security.  
+Desize is designed with productive workflow in mind, so you can customize the compression for different images in your library at the same time.  
+You can either apply a quality setting to all images at once to get results quickly, or you can go into each image individually and customize the compression to your liking with the Before and After feature.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Demo
+Try the app [here](https://www.wicecloud.com/image-desize/)
