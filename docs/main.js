@@ -94,8 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_4__["AboutComponent"] },
     { path: 'edit/:id', component: _image_comparer_image_comparer_component__WEBPACK_IMPORTED_MODULE_3__["ImageComparerComponent"] },
-    { path: 'gallery', component: _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_2__["GalleryComponent"] },
-    { path: '', redirectTo: '/gallery', pathMatch: 'full' }
+    { path: '', component: _gallery_gallery_component__WEBPACK_IMPORTED_MODULE_2__["GalleryComponent"], pathMatch: 'full' }
 ];
 class AppRoutingModule {
 }
