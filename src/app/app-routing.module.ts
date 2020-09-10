@@ -7,8 +7,7 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'edit/:id', component: ImageComparerComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: '', redirectTo: '/gallery', pathMatch: 'full'}
+  { path: '', component: GalleryComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
