@@ -1,14 +1,10 @@
 @use "../scss/utils";
 
 .window {
-  @extend .align-content-center;
-
-  canvas {
-    position: relative;
-  }
-
-  overflow: scroll;
   display: inline-flex;
+  justify-content: center;
+  align-items: end;
+  overflow: scroll;
   cursor: grab;
 
   -ms-overflow-style: none;  /* Internet Explorer 10+ */

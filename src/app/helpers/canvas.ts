@@ -10,7 +10,6 @@ export function drawImage(canvas:HTMLCanvasElement, url:string, width:number=nul
     let img = new Image();
     img.src = url;
 
-    console.log('drawImage', 'canvas', canvas)
     img.onload = function() {
       // if (resize) {
       //   // set canvas to width for the parents element (not including padding/margin)

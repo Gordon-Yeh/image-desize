@@ -17,13 +17,14 @@ export class ImageComparerComponent implements OnInit, AfterViewInit {
   /* control fields */
   quality = 85;
   outputNameField = 'output';
-  viewMode : View = 'y';
+  viewMode : View = 'compare';
   imageInfo : any;
   imgId: number;
   /* HTML Elements */
   compareXCanvas : HTMLCanvasElement;
   compareYCanvas : HTMLCanvasElement;
   YCanvas : HTMLCanvasElement;
+  win = window;
 
   constructor(
     private route: ActivatedRoute,
@@ -112,16 +113,9 @@ export class ImageComparerComponent implements OnInit, AfterViewInit {
     this.drawView();
   }
 
-  resizeCanvases() {
-    this.singleViewCanvas.resizeWindow(window.innerWidth, window.innerHeight);
-    this.beforeViewCanvas.resizeWindow(window.innerWidth/2, window.innerHeight);
-    this.afterViewCanvas.resizeWindow(window.innerWidth/2, window.innerHeight);
-  }
-
   ngOnInit() {
     // resize images appropriately if view size changes
     window.addEventListener('resize', () => {
-      this.resizeCanvases();
       this.drawView();
     });
     this.imgId = +this.route.snapshot.paramMap.get('id');
@@ -134,9 +128,8 @@ export class ImageComparerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // we do this here instead of ngOnInit() because ViewChild aren't guarentee to be populated at that time
     // reference: https://blog.angular-university.io/angular-viewchild/
-    this.resizeCanvases();
+    this.drawView();
     this.beforeViewCanvas.onPan = (x, y) => { this.afterViewCanvas.move(x, y) };
     this.afterViewCanvas.onPan = (x, y) => { this.beforeViewCanvas.move(x, y) };
-    this.drawView();
   }
 }

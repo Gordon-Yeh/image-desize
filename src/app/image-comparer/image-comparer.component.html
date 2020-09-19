@@ -18,16 +18,25 @@
 
   <div class="image-comparer-container">
     <!-- View Container Wrapper -->
-      <div class="align-content-center" [hidden]="getCurrentViewModel() !== 'y'">
-        <app-panning-canvas #singleview></app-panning-canvas>
+      <div [hidden]="getCurrentViewModel() !== 'y'">
+        <app-panning-canvas #singleview
+          [width]="win.outerWidth | number:'1.0-0'"
+          [height]="win.outerHeight*5/6 | number:'1.0-0'">
+        ></app-panning-canvas>
       </div>
       <!-- Y View Components -->
 
       <!-- Compare View Components -->
       <div [hidden]="getCurrentViewModel() !== 'compare'">
-          <app-panning-canvas #beforeview></app-panning-canvas>
+        <app-panning-canvas #beforeview
+          [width]="win.outerWidth/2 | number:'1.0-0'"
+          [height]="win.outerHeight*5/6 | number:'1.0-0'">
+        ></app-panning-canvas>
         <!-- OUTPUT -->
-          <app-panning-canvas #afterview></app-panning-canvas>
+        <app-panning-canvas #afterview
+          [width]="win.outerWidth/2 | number:'1.0-0'"
+          [height]="win.outerHeight*5/6 | number:'1.0-0'">
+        </app-panning-canvas>
         <div class="vertical-split-line overflow-hidden"></div>
       </div> 
       <!-- Compare View Components -->

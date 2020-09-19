@@ -9,15 +9,15 @@ import { drawImage } from '../helpers/canvas';
 export class PanningCanvasComponent implements OnInit {
   @ViewChild('mycanvas') canv : ElementRef;
   @ViewChild('canvwindow') canvWindow : ElementRef;
-  @Input('height') winHeight:number;
-  @Input('width') winWidth:number;
-  xoffset:number = 0;
-  yoffset:number = 0;
-  prevTouchX:number = 0;
-  prevTouchY:number = 0;
+  @Input('height') winHeight = 0;
+  @Input('width') winWidth = 0;
+  xoffset = 0;
+  yoffset = 0;
+  prevTouchX = 0;
+  prevTouchY = 0;
   mouseHeld:boolean = false;
-  touching:boolean = false;
   mouseTarget:EventTarget;
+  panTarget:EventTarget;
   onPan:Function;
 
   constructor() {
@@ -46,11 +46,11 @@ export class PanningCanvasComponent implements OnInit {
 
   handleMouseDown(e:MouseEvent) {
     this.mouseHeld = true;
-    this.mouseTarget = e.target;
+    this.panTarget = e.target;
   }
 
   handleMouseMove(e:MouseEvent) {
-    if (e.target == this.mouseTarget && this.mouseHeld) {
+    if (e.target == this.panTarget && this.mouseHeld) {
       this.move(e.movementX, e.movementY);
       if (this.onPan)
         this.onPan(e.movementX, e.movementY);
@@ -62,8 +62,7 @@ export class PanningCanvasComponent implements OnInit {
   }
 
   handleScroll(e:WheelEvent) {
-    console.log("scroll event!");
-    this.onPan(-e.deltaX, -e.deltaY);
+    // e.preventDefault();
   }
 
   handleTouchStart(e:TouchEvent) {
@@ -80,16 +79,12 @@ export class PanningCanvasComponent implements OnInit {
       let touch = e.touches.item(0);
       let dx = touch.screenX-this.prevTouchX;
       let dy = touch.screenY-this.prevTouchY;
-      console.log(`dx=${dx}, dy=${dy}`);
       this.move(dx, dy)
       if (this.onPan)
         this.onPan(dx, dy);
       this.prevTouchX = touch.screenX;
       this.prevTouchY = touch.screenY;
     }
-  }
-
-  handleTouchEnd(e:TouchEvent) {
   }
 
   ngOnInit(): void {

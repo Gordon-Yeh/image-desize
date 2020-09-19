@@ -11,6 +11,7 @@
 .img-container {
   height: 100vh;
   width: 100%;
+  overflow: scroll;
 }
 
 $highlight: #D7E7FF;
@@ -35,7 +36,7 @@ $highlight: #D7E7FF;
     display: block;
     margin: 10px auto 0px auto;
     width: 325px;
-    height: 200px;
+    height: 275px;
   }
 
   &.selected {
@@ -54,6 +55,20 @@ $highlight: #D7E7FF;
     padding: 6px 10px 6px 10px;
     font-size: 14px;
     text-align: end;
+  }
+
+  .mobile-edit {
+    @include media-breakpoint-up(sm) {
+      display: none;
+    }
+    font-size: 20px;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+    right: 0;
+    top: 0;
+    margin: 5px 5px 0 0;
+    padding: 2px 5px 5px 10px;
   }
 }
 

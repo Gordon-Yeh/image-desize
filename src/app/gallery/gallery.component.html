@@ -1,10 +1,31 @@
 <div class="gallery-container">
-  <input id="fileselector" (input)="handleFileSelect()" type="file" multiple #fileselector>
+  <div class="row">
+    <div class="col-12 col-md-3 mb-2">
+      <div class="form-file form-file-sm">
+        <input id="fileselector" (input)="handleFileSelect()" type="file" class="form-file-input" multiple #fileselector>
+        <label class="form-file-label" for="customFileLg">
+          <span class="form-file-text">Choose file...</span>
+          <span class="form-file-button">Browse</span>
+        </label>
+      </div>
+    </div>
 
-  <span>Quality: </span>
-  <input [(ngModel)]="quality" type="number" min="0" max="100" id="quality">
-  <button type="button" (click)="handleApplyQuality()" class="btn btn-dark ml-3">Apply</button>
-  <button type="button" (click)="handleSelectAll($event)" class="btn btn-light ml-5">Select All</button>
+    <div class="col-8 col-md-2 mb-2">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Quality:</span>
+        <input type="number" class="form-control" aria-label="quality" min="0" max="100">
+        <button type="button" (click)="handleApplyQuality()" class="btn btn-outline-secondary">Apply</button>
+      </div>
+    </div>
+
+    <div class="col-4 col-md-3 mb-2">
+      <div class="input-group input-group-sm">
+        <button type="button" (click)="handleSelectAll($event)" class="btn btn-outline-secondary">Select All</button>
+      </div>
+    </div>
+  </div>
+
+
 
   <!-- FIXME: Vulnerable to XSS, if user selects a malicious file containing a script -->
   <div class="img-container" (click)="handleDeselectClick()">
@@ -21,6 +42,7 @@
         <span class="mr-3"><b>Quality</b>: {{ item.value.quality/100 | percent }}</span>
         <span><b>Output Size</b>: {{ item.value.compressed.f.size | bytes }}</span>
       </div>
+      <span class="mobile-edit" (touchstart)="handleImgFrameDoubleClick($event, item.key)"><i class="fas fa-edit" width="45px" height="45px"></i></span>
     </div>
   </div>
 </div>

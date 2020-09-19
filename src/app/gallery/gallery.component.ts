@@ -68,7 +68,7 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  handleImgFrameDoubleClick(e: MouseEvent, imgId: number) {
+  handleImgFrameDoubleClick(e: Event, imgId: number) {
     e.stopPropagation();
     this.selected = {};
     this.route.navigateByUrl('/edit/' + imgId);
