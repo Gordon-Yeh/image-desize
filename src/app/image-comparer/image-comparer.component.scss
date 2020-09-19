@@ -16,7 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
   padding-bottom: 10px;
 }
 
@@ -155,4 +154,11 @@
   .dropdown-toggle {
     font-size: 1.1rem;
   }
+}
+
+.compare-view-img-wrapper {
+  @extend .align-content-center;
+  display: inline-block;
+  overflow: hidden;
+  width: 50vw;
 }

@@ -10,6 +10,7 @@ import { BytesPipe } from './pipes/bytes.pipe';
 import { GalleryComponent } from './gallery/gallery.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { AboutComponent } from './about/about.component';
+import { PanningCanvasComponent } from './panning-canvas/panning-canvas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AboutComponent } from './about/about.component';
     BytesPipe,
     GalleryComponent,
     SafePipe,
-    AboutComponent
+    AboutComponent,
+    PanningCanvasComponent
   ],
   imports: [
     BrowserModule,

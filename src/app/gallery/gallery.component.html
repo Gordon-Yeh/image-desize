@@ -1,19 +1,21 @@
-<div class="gallery-container" (click)="clickTest()">
+<div class="gallery-container">
   <input id="fileselector" (input)="handleFileSelect()" type="file" multiple #fileselector>
 
   <span>Quality: </span>
   <input [(ngModel)]="quality" type="number" min="0" max="100" id="quality">
   <button type="button" (click)="handleApplyQuality()" class="btn btn-dark ml-3">Apply</button>
+  <button type="button" (click)="handleSelectAll($event)" class="btn btn-light ml-5">Select All</button>
 
   <!-- FIXME: Vulnerable to XSS, if user selects a malicious file containing a script -->
-  <div class="img-container">
+  <div class="img-container" (click)="handleDeselectClick()">
     <div
       *ngFor="let item of imgService.getImgs() | keyvalue"
       class="img-frame"
       [attr.data-id]="item.key"
       [class.selected]="selected[item.key]"
       [style.background-image]="'url(' + item.value.original.url + ')'"
-      (click)="handleImgFrameClick(item.key)"
+      (click)="handleImgFrameClick($event, item.key)"
+      (dblclick)="handleImgFrameDoubleClick($event, item.key)"
     >
       <div class="attribute-label">
         <span class="mr-3"><b>Quality</b>: {{ item.value.quality/100 | percent }}</span>

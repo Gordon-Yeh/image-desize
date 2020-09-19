@@ -75,7 +75,7 @@ export class ImageCompressionService {
   compressImg(imgId: number, quality: number) : Promise<ImgInfo> {
     let img = this.images[imgId];
     let canvas = document.createElement('canvas') as HTMLCanvasElement;
-    return drawImage(canvas, img.original.url, false)
+    return drawImage(canvas, img.original.url)
       .then(() => {
         return toJPEG(canvas, quality);
       })

@@ -1,0 +1,14 @@
+<div class="window" #canvwindow
+  [style.height]="winHeight+'px'"
+  [style.width]="winWidth+'px'"
+  (mouseup)="handleMouseUp()"
+  (mousedown)="handleMouseDown($event)"
+  (mousemove)="handleMouseMove($event)"
+  (touchstart)="handleTouchStart($event)"
+  (touchend)="handleTouchEnd($event)"
+  (touchmove)="handleTouchMove($event)"
+  (wheel)="handleScroll($event)"
+>
+  <canvas #mycanvas>
+  </canvas>
+</div>

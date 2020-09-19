@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import FileWithURL from '../models/FileWithURL';
 import { ImageCompressionService } from '../services/image-compression.service';
-import Selection from '../libs/selection';
 import * as JSZip from 'jszip';
 import { download } from '../helpers/files';
 
@@ -14,11 +13,7 @@ const DOUBLECLICK_THRESHHOLD = 200;
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-  images = {};
   selected = {};
-  clickTimer: {[imgId: number]: number}= {};
-  imageCounter = 0;
-  lastClick = 0;
   quality = 100;
   busy = false;
 
@@ -27,12 +22,6 @@ export class GalleryComponent implements OnInit {
     private route: Router,
   ) {
     console.log('gallery.component constructor');
-  }
-
-  clickTest() {
-    let now = new Date().valueOf();
-    console.log(`current time: ${now}, time between last and now: ${now-this.lastClick}`);
-    this.lastClick = now;
   }
 
   handleApplyQuality() {
@@ -48,15 +37,46 @@ export class GalleryComponent implements OnInit {
       });
   }
 
-  handleImgFrameClick(imgId: number) {
+  handleImgFrameClick(e: MouseEvent, imgId: number) {
     console.log('handleImgFrameClick:', imgId);
-    let now = new Date().valueOf();
-    let last = this.clickTimer[imgId];
-    // is this a double click event? 
-    if (last && now-last < DOUBLECLICK_THRESHHOLD) {
-      this.route.navigateByUrl('/edit/' + imgId);
+    e.stopPropagation();
+
+    if (e.shiftKey) {
+      console.log('clicked when shifted')
+      // shift logic here
+      let selectedImg = Object.keys(this.selected);
+      let first = Number(selectedImg[0]);
+      let last = Number(selectedImg[selectedImg.length-1]);
+      this.allImgs.forEach(id => {
+        if ((imgId < first && id < first && id > imgId) ||
+          (imgId > last && id > last && id < imgId)) {
+            console.log('selected id', id)
+            this.selected[id] = true;
+        }
+      });
+    } else if (!e.ctrlKey) {
+      this.selected = {};
     }
-    this.clickTimer[imgId] = now;
+
+    this.selected[imgId] = true;
+  }
+
+  handleSelectAll(e: MouseEvent) {
+    e.stopPropagation();
+    this.allImgs.forEach(id => {
+      this.selected[id] = true;
+    });
+  }
+
+  handleImgFrameDoubleClick(e: MouseEvent, imgId: number) {
+    e.stopPropagation();
+    this.selected = {};
+    this.route.navigateByUrl('/edit/' + imgId);
+  }
+
+  handleDeselectClick() {
+    console.log('deslecting all images');
+    this.selected = {};
   }
 
   handleFileSelect() {
@@ -100,34 +120,5 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('gallery.component OnInit');
-    let selection = Selection({
-      class: 'selection',
-      frame: document,
-      selectables: ['.img-frame'],
-      boundaries: ['.img-container']
-    }).on('start', ({inst, selected, oe}) => {
-      // Remove class if the user isn't pressing the control key or ⌘ key
-      if (!oe.ctrlKey && !oe.metaKey) {
-        this.selected = {};
-        // Clear previous selection
-        inst.clearSelection();
-      }
-    }).on('move', ({changed: {removed, added}}) => {
-      // Add a custom class to the elements that where selected.
-      for (const el of added) {
-        let imgId: number = +el.getAttribute('data-id');
-        this.selected[imgId] = true;
-      }
-  
-      // Remove the class from elements that where removed
-      // since the last selection
-      for (const el of removed) {
-        let imgId: number = +el.getAttribute('data-id');
-        delete this.selected[imgId];
-      }
-    }).on('stop', ({inst}) => {
-      // Remember selection in case the user wants to add smth in the next one
-      inst.keepSelection();
-    });
   }
 }

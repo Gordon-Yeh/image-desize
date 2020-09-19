@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ImageCompressionService } from '../services/image-compression.service';
 import { drawImage } from '../helpers/canvas';
+import { PanningCanvasComponent } from '../panning-canvas/panning-canvas.component';
 
 type View = 'compare' | 'y' | 'vertical';
 @Component({
@@ -9,7 +10,10 @@ type View = 'compare' | 'y' | 'vertical';
   templateUrl: 'image-comparer.component.html',
   styleUrls: ['./image-comparer.component.scss']
 })
-export class ImageComparerComponent implements OnInit {
+export class ImageComparerComponent implements OnInit, AfterViewInit {
+  @ViewChild('singleview') singleViewCanvas:PanningCanvasComponent;
+  @ViewChild('beforeview') beforeViewCanvas:PanningCanvasComponent;
+  @ViewChild('afterview') afterViewCanvas:PanningCanvasComponent;
   /* control fields */
   quality = 85;
   outputNameField = 'output';
@@ -48,15 +52,16 @@ export class ImageComparerComponent implements OnInit {
   }
 
   drawView() {
+    console.log('drawView');
     if (!this.imageInfo)
       return;
 
     switch (this.viewMode) {
       case 'compare':
-        drawImage(this.compareXCanvas, this.imageInfo.original.url);
-        drawImage(this.compareYCanvas, this.imageInfo.compressed.url);
+        this.beforeViewCanvas.redraw(this.imageInfo.original.url);
+        this.afterViewCanvas.redraw(this.imageInfo.compressed.url);
       case 'y':
-        drawImage(this.YCanvas, this.imageInfo.compressed.url);
+        this.singleViewCanvas.redraw(this.imageInfo.compressed.url);
       case 'vertical':
     }
   }
@@ -78,6 +83,7 @@ export class ImageComparerComponent implements OnInit {
   }
 
   handleViewChange(mode : View) {
+    console.log('handleViewChange');
     if (mode === this.viewMode) {
       return;
     }
@@ -106,17 +112,31 @@ export class ImageComparerComponent implements OnInit {
     this.drawView();
   }
 
-  ngOnInit() {
-    this.compareXCanvas = document.getElementById('before') as HTMLCanvasElement;
-    this.compareYCanvas = document.getElementById('after') as HTMLCanvasElement;
-    this.YCanvas = document.getElementById('y-canvas') as HTMLCanvasElement;
+  resizeCanvases() {
+    this.singleViewCanvas.resizeWindow(window.innerWidth, window.innerHeight);
+    this.beforeViewCanvas.resizeWindow(window.innerWidth/2, window.innerHeight);
+    this.afterViewCanvas.resizeWindow(window.innerWidth/2, window.innerHeight);
+  }
 
+  ngOnInit() {
     // resize images appropriately if view size changes
-    window.addEventListener('resize', this.drawView);
+    window.addEventListener('resize', () => {
+      this.resizeCanvases();
+      this.drawView();
+    });
     this.imgId = +this.route.snapshot.paramMap.get('id');
     this.imageInfo = this.imgService.getImg(this.imgId);
+    console.log('imginfo', this.imageInfo)
     this.outputNameField = `${this.imageInfo.original.f.name.split('.')[0]}-compressed`;
     this.quality = this.imageInfo.quality;
+  }
+
+  ngAfterViewInit() {
+    // we do this here instead of ngOnInit() because ViewChild aren't guarentee to be populated at that time
+    // reference: https://blog.angular-university.io/angular-viewchild/
+    this.resizeCanvases();
+    this.beforeViewCanvas.onPan = (x, y) => { this.afterViewCanvas.move(x, y) };
+    this.afterViewCanvas.onPan = (x, y) => { this.beforeViewCanvas.move(x, y) };
     this.drawView();
   }
 }

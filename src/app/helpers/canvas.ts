@@ -5,34 +5,37 @@ function getInnerWidth(e : HTMLElement) : number {
   return e.clientWidth - padding;
 }
 
-export function drawImage(canvas : HTMLCanvasElement, url : string, resize=true) : Promise<void> {
+export function drawImage(canvas:HTMLCanvasElement, url:string, width:number=null, height:number=null) : Promise<void> {
   return new Promise((resolve, reject) => {
     let img = new Image();
     img.src = url;
 
+    console.log('drawImage', 'canvas', canvas)
     img.onload = function() {
-      if (resize) {
-        // set canvas to width for the parents element (not including padding/margin)
-        var dWidth = getInnerWidth(canvas.parentElement);
-        var dHeight = dWidth / img.width * img.height;
-        // image should not exceed a portion of the screen
-        if (dHeight > window.innerHeight * 0.8) {
-          dHeight = window.innerHeight * 0.8;
-          dWidth = dHeight / img.height * img.width;
-        }
-      } else {
-        var dWidth = img.width;
-        var dHeight = img.height;
-      }
-      
+      // if (resize) {
+      //   // set canvas to width for the parents element (not including padding/margin)
+      //   var dWidth = getInnerWidth(canvas.parentElement);
+      //   var dHeight = dWidth / img.width * img.height;
+      //   // image should not exceed a portion of the screen
+      //   if (dHeight > window.innerHeight * 0.8) {
+      //     dHeight = window.innerHeight * 0.8;
+      //     dWidth = dHeight / img.height * img.width;
+      //   }
+      // } else {
+      //   var dWidth = img.width;
+      //   var dHeight = img.height;
+      // }
+      let dWidth = width !== null ? width : img.width;
+      let dHight = height !== null ? height : img.height;
       canvas.width = dWidth;
-      canvas.height = dHeight;
+      canvas.height = dHight;
+      
       var ctx = canvas.getContext('2d');
       ctx.drawImage(img,
         0, 0,
         img.width, img.height,
         0, 0,
-        dWidth, dHeight
+        dWidth, dHight
       );
 
       resolve();
@@ -40,7 +43,7 @@ export function drawImage(canvas : HTMLCanvasElement, url : string, resize=true)
   });
 }
 
-export function toJPEG(canvas : HTMLCanvasElement, quality : number) : Promise<Blob> {
+export function toJPEG(canvas:HTMLCanvasElement, quality:number) : Promise<Blob> {
   return new Promise((resolve, reject) => {
     if (quality < 0 || quality > 100)
       reject(new Error(`jpeg quality should be between 0 to 100, got ${quality}`));

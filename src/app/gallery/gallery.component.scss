@@ -1,5 +1,8 @@
 @use "../scss/utils";
 @use "../colours";
+@import "../../assets/stylesheets/bootstrap/functions",
+  "../../assets/stylesheets/bootstrap/variables",
+  "../../assets/stylesheets/bootstrap/mixins/breakpoints";
 
 .gallery-container {
   padding: 10px 20px 10px 20px;
@@ -13,15 +16,27 @@
 $highlight: #D7E7FF;
 
 .img-frame {
+  @extend .disable-highlight;
   display: inline-block;
   position: relative;
-  margin: 10px 10px 0px 10px;
-  width: 375px;
-  height: 300px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border: 1px solid #C4C4C4;
+
+  @include media-breakpoint-up(sm) {
+    display: inline-block;
+    margin: 10px 10px 0px 10px;
+    width: 375px;
+    height: 300px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+    margin: 10px auto 0px auto;
+    width: 325px;
+    height: 200px;
+  }
 
   &.selected {
     border: 1px solid #5296FC;
