@@ -16,58 +16,68 @@
     </ul>
   </div>
 
-  <div class="image-comparer-container">
+  <div class="image-comparer-container" [hidden]="getCurrentViewModel() !== 'output'">
     <!-- View Container Wrapper -->
-      <div [hidden]="getCurrentViewModel() !== 'output'">
-        <app-panning-canvas #singleview
-          [width]="win.outerWidth | number:'1.0-0'"
-          [height]="win.outerHeight*5/6 | number:'1.0-0'">
-        ></app-panning-canvas>
-      </div>
+    <app-panning-canvas #singleview
+      [maxWidth]="win.outerWidth"
+      [maxHeight]="win.outerHeight*5/6">
+    ></app-panning-canvas>
+  </div>
       <!-- Y View Components -->
-
+  <div class="image-comparer-container" [hidden]="getCurrentViewModel() !== 'compare'">
+    <div class="compare-view-partition">
       <!-- Compare View Components -->
-      <div [hidden]="getCurrentViewModel() !== 'compare'">
-        <app-panning-canvas #beforeview
-          [width]="win.outerWidth/2-1 | number:'1.0-0'"
-          [height]="win.outerHeight*5/6 | number:'1.0-0'">
-        ></app-panning-canvas>
-        <!-- OUTPUT -->
-        <app-panning-canvas #afterview
-          [width]="win.outerWidth/2-1 | number:'1.0-0'"
-          [height]="win.outerHeight*5/6 | number:'1.0-0'">
-        </app-panning-canvas>
-        <div class="vertical-split-line overflow-hidden"></div>
-      </div> 
+      <app-panning-canvas #beforeview
+        [maxWidth]="win.outerWidth/2-1"
+        [maxHeight]="win.outerHeight*5/6">
+      ></app-panning-canvas>
+    </div>
+
+    <div class="compare-view-partition">
       <!-- Compare View Components -->
-    <canvas id="input-canvas" hidden></canvas>
+      <app-panning-canvas #afterview
+        [maxWidth]="win.outerWidth/2-1"
+        [maxHeight]="win.outerHeight*5/6">
+      </app-panning-canvas>
+    </div>
+
+    <div class="vertical-split-line overflow-hidden"></div>
+    <!-- Compare View Components -->
+  </div>
+  <canvas id="input-canvas" hidden></canvas>
+
+  <!-- CONTROL BAR -->
+  <div class="control-bar">
+    <!-- FILE SIZE DISPLAY -->
+    <div class="control-bar-row align-content-center">
+      <div #prevImgBtn
+        (click)="handleChangeImg(true)"
+        [hidden]="imgService.isFirstImg(imgId)"
+        class="next-btn mr-2">
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </div>
+
+      <span
+        class="pop-up"
+        [class.red]="getFileDifference() > 0"
+        [class.green]="getFileDifference() < 0"
+      >
+        {{ getCPFileSize() | bytes }} / {{ getOGFileSize() | bytes }} ({{ getFileDifference() | percentWithSign }})
+      </span>
+
+      <div #nextImgBtn
+        (click)="handleChangeImg()"
+        [hidden]="imgService.isLastImg(imgId)"
+        class="next-btn ml-2">
+        <i class="fas fa-arrow-alt-circle-right"></i>
+      </div>
+    </div>
+    <!-- JPEG QUALITY CONTROL -->
+    <div class="control-bar-row quality-selector input-group">
+      <input [(ngModel)]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
+      <input [(ngModel)]="quality" (change)="handleQualityChange()" type="number" class="form-control" min="0" max="100" id="quality">
+      <span class="input-group-text">%</span>
+    </div>
   </div>
 
-  <div (click)="handleChangeImg(true)" [hidden]="imgService.isFirstImg(imgId)" class="pos-fixed left center next-btn ml-2">
-    <i class="fas fa-arrow-alt-circle-left"></i>
-  </div>
-
-  <div (click)="handleChangeImg()" [hidden]="imgService.isLastImg(imgId)" class="pos-fixed right center next-btn mr-2">
-    <i class="fas fa-arrow-alt-circle-right"></i>
-  </div>
-</div>
-
-<!-- CONTROL BAR -->
-<div class="control-bar">
-  <!-- FILE SIZE DISPLAY -->
-  <div class="control-bar-row align-content-center">
-    <span
-      class="pop-up"
-      [class.red]="getFileDifference() > 0"
-      [class.green]="getFileDifference() < 0"
-    >
-      {{ getCPFileSize() | bytes }} / {{ getOGFileSize() | bytes }} ({{ getFileDifference() | percentWithSign }})
-    </span>
-  </div>
-  <!-- JPEG QUALITY CONTROL -->
-  <div class="control-bar-row quality-selector input-group">
-    <input [(ngModel)]="quality" (change)="handleQualityChange()" type="range" class="form-range" min="0" max="100" id="quality">
-    <input [(ngModel)]="quality" (change)="handleQualityChange()" type="number" class="form-control" min="0" max="100" id="quality">
-    <span class="input-group-text">%</span>
-  </div>
 </div>

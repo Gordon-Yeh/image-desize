@@ -9,8 +9,10 @@ import { drawImage } from '../helpers/canvas';
 export class PanningCanvasComponent implements OnInit {
   @ViewChild('mycanvas') canv : ElementRef;
   @ViewChild('canvwindow') canvWindow : ElementRef;
-  @Input('height') winHeight = 0;
-  @Input('width') winWidth = 0;
+  @Input('maxHeight') maxHeight:number = 0;
+  @Input('maxWidth') maxWidth:number = 0;
+  winHeight = 0;
+  winWidth = 0;
   xoffset = 0;
   yoffset = 0;
   prevTouchX = 0;
@@ -24,7 +26,13 @@ export class PanningCanvasComponent implements OnInit {
   }
 
   async redraw(img:string) {
-    return drawImage(this.canv.nativeElement, img);
+    await drawImage(this.canv.nativeElement, img);
+    console.log('canv.height:', this.canv.nativeElement.height, 'maxHeight:', this.maxHeight)
+    console.log('canv.width:', this.canv.nativeElement.width, 'maxWidth:', this.maxWidth)
+    this.winHeight = Math.min(this.canv.nativeElement.height, this.maxHeight);
+    this.winWidth = Math.min(this.canv.nativeElement.width, this.maxWidth);
+    console.log('winHeight', this.winHeight)
+    console.log('winWidth', this.winWidth)
   }
 
   resizeWindow(width:number, height:number) {

@@ -1,9 +1,10 @@
 @use "../scss/utils";
 
 .window {
-  display: inline-flex;
-  justify-content: center;
-  align-items: flex-start;
+  // display: inline-flex;
+  // justify-content: center;
+  // align-items: center;
+  display: inline-block;
   overflow: scroll;
   cursor: grab;
 

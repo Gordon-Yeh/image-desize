@@ -21,6 +21,13 @@
   align-items: center;
 }
 
+.align-content-center-inline {
+  // will align content in the center
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .disable-highlight {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

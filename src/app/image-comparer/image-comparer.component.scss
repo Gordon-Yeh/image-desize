@@ -1,4 +1,5 @@
 @use "../colours";
+@use "../scss/utils";
 @import "../../assets/stylesheets/bootstrap/functions",
   "../../assets/stylesheets/bootstrap/variables",
   "../../assets/stylesheets/bootstrap/mixins/breakpoints";
@@ -10,8 +11,9 @@
 }
 
 .image-comparer-container {
+  @extend .align-content-center;
   position: relative;
-  min-height: 100%;
+  min-height: 80%;
   // will align content in the center
   padding-bottom: 10px;
 }
@@ -69,13 +71,6 @@
   }
 }
 
-.align-content-center {
-  // will align content in the center
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .img-wrapper {
   margin: auto;
 }
@@ -114,7 +109,7 @@
 }
 
 .next-btn {
-  font-size: 40px;
+  font-size: 2rem;
   &:hover {
     color: colours.$blue;
     cursor: pointer;
@@ -153,9 +148,8 @@
   }
 }
 
-.compare-view-img-wrapper {
-  @extend .align-content-center;
-  display: inline-block;
+.compare-view-partition {
+  @extend .align-content-center-inline;
   overflow: hidden;
   width: 50vw;
 }
