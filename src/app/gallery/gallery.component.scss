@@ -9,9 +9,10 @@
 }
 
 .img-container {
-  height: 100vh;
+  height: 80vh;
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  padding-bottom: 300px;
 }
 
 $highlight: #D7E7FF;
@@ -67,7 +68,7 @@ $highlight: #D7E7FF;
     border-radius: 5px;
     right: 0;
     top: 0;
-    margin: 5px 5px 0 0;
+    margin: 5px 8px 0 0;
     padding: 2px 5px 5px 10px;
   }
 }
@@ -79,12 +80,20 @@ $highlight: #D7E7FF;
   right: 0;
   width: 100%;
   text-align: right;
-
   background-color: colours.$light-grey;
+  font-size: 1rem;
 
   padding: 10px 50px 10px 50px;
 
-  .item {
-    margin: 0 10px 0 10px;
+  @include media-breakpoint-down(sm) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .green {
+    color: #19b900;
+  }
+  .red {
+    color: #d80000;
   }
 }

@@ -13,9 +13,6 @@
   position: relative;
   min-height: 100%;
   // will align content in the center
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-bottom: 10px;
 }
 
@@ -152,7 +149,7 @@
 .view-selection {
   background-color: colours.$grey;
   .dropdown-toggle {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 }
 

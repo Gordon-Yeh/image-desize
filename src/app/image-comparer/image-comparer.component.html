@@ -6,19 +6,19 @@
       {{ 
         {
           'compare': 'Compare View',
-          'y': 'Y View'
+          'output': 'Output View'
         }[viewMode]
       }}
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <li><a class="dropdown-item" (click)="handleViewChange('compare')">Compare View</a></li>
-      <li><a class="dropdown-item" (click)="handleViewChange('y')">Y View</a></li>
+      <li><a class="dropdown-item" (click)="handleViewChange('output')">Output View</a></li>
     </ul>
   </div>
 
   <div class="image-comparer-container">
     <!-- View Container Wrapper -->
-      <div [hidden]="getCurrentViewModel() !== 'y'">
+      <div [hidden]="getCurrentViewModel() !== 'output'">
         <app-panning-canvas #singleview
           [width]="win.outerWidth | number:'1.0-0'"
           [height]="win.outerHeight*5/6 | number:'1.0-0'">
@@ -29,12 +29,12 @@
       <!-- Compare View Components -->
       <div [hidden]="getCurrentViewModel() !== 'compare'">
         <app-panning-canvas #beforeview
-          [width]="win.outerWidth/2 | number:'1.0-0'"
+          [width]="win.outerWidth/2-1 | number:'1.0-0'"
           [height]="win.outerHeight*5/6 | number:'1.0-0'">
         ></app-panning-canvas>
         <!-- OUTPUT -->
         <app-panning-canvas #afterview
-          [width]="win.outerWidth/2 | number:'1.0-0'"
+          [width]="win.outerWidth/2-1 | number:'1.0-0'"
           [height]="win.outerHeight*5/6 | number:'1.0-0'">
         </app-panning-canvas>
         <div class="vertical-split-line overflow-hidden"></div>

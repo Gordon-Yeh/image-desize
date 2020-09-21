@@ -4,7 +4,7 @@ import { ImageCompressionService } from '../services/image-compression.service';
 import { drawImage } from '../helpers/canvas';
 import { PanningCanvasComponent } from '../panning-canvas/panning-canvas.component';
 
-type View = 'compare' | 'y' | 'vertical';
+type View = 'compare' | 'output';
 @Component({
   selector: 'image-comparer',
   templateUrl: 'image-comparer.component.html',
@@ -61,9 +61,8 @@ export class ImageComparerComponent implements OnInit, AfterViewInit {
       case 'compare':
         this.beforeViewCanvas.redraw(this.imageInfo.original.url);
         this.afterViewCanvas.redraw(this.imageInfo.compressed.url);
-      case 'y':
+      case 'output':
         this.singleViewCanvas.redraw(this.imageInfo.compressed.url);
-      case 'vertical':
     }
   }
 

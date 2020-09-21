@@ -29,8 +29,8 @@ export class GalleryComponent implements OnInit {
       return;
 
     this.busy = true;
-    let imgsToApply = Object.keys(this.selected).filter(id => this.selected[id]);
-    imgsToApply.map(id => this.imgService.compressImg(Number(id), this.quality));
+    let imgsToApply = this.selectedImgs;
+    imgsToApply.map(id => this.imgService.compressImg(id, this.quality));
     Promise.all(imgsToApply)
       .then(() => {
         this.busy = false;
@@ -110,6 +110,22 @@ export class GalleryComponent implements OnInit {
 
   get allImgs() : number[] {
     return this.imgService.getImgIds();
+  }
+
+  get selectedCount():number {
+    return Object.keys(this.selected).length;
+  }
+
+  get fileReductionPercentage():number {
+    let imgSet = this.selectedCount > 0 ? this.selectedImgs : this.allImgs;
+    let cSize = this.aggrigateFileSize(imgSet, 'compressed');
+    let oSize = this.aggrigateFileSize(imgSet, 'original');
+    return oSize > 0 ? (cSize-oSize)/oSize : 0;
+  }
+
+  get fileOutputSize():number {
+    let imgSet = this.selectedCount > 0 ? this.selectedImgs : this.allImgs;
+    return this.aggrigateFileSize(imgSet, 'compressed');
   }
 
   aggrigateFileSize(ids : number[], version : 'original' | 'compressed') {

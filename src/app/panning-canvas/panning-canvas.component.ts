@@ -62,7 +62,7 @@ export class PanningCanvasComponent implements OnInit {
   }
 
   handleScroll(e:WheelEvent) {
-    // e.preventDefault();
+    e.preventDefault();
   }
 
   handleTouchStart(e:TouchEvent) {

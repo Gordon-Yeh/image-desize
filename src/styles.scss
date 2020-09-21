@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/stylesheets/bootstrap/bootstrap.scss";
 @import "./assets/fonts/fonts.css";
+@import "./assets/stylesheets/bootstrap/functions",
+  "./assets/stylesheets/bootstrap/variables",
+  "./assets/stylesheets/bootstrap/mixins/breakpoints";
+
+html {
+  font-size: 18px;
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+  }
+}
 
 body {
   font-weight: 200;

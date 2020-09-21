@@ -6,6 +6,7 @@ function getInnerWidth(e : HTMLElement) : number {
 }
 
 export function drawImage(canvas:HTMLCanvasElement, url:string, width:number=null, height:number=null) : Promise<void> {
+  console.log(`drawing ${url} to ${canvas}`)
   return new Promise((resolve, reject) => {
     let img = new Image();
     img.src = url;
